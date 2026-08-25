@@ -1,469 +1,595 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE MARKET · Bleu & Blanc</title>
-    <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELITE MARKET · Burkina</title>
+  <!-- Font Awesome 6 (gratuit) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
 
-        body {
-            background-color: #0a2647; /* bleu profond */
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+      background-color: #0a2a44; /* bleu profond */
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
 
-        /* ----- conteneur principal ----- */
-        .app {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 1.2rem 1.5rem 2rem;
-            width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+    .app {
+      max-width: 1300px;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: #0b2d4a;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
 
-        /* ----- HEADER / NAV ----- */
-        .navbar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            background: #0b2b4a;
-            padding: 0.8rem 1.8rem;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-        }
+    /* EN-TÊTE */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #1e5a8a;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: white;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-        }
-        .logo i {
-            margin-right: 8px;
-            color: white;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 1.8rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: 0.2s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
-        }
-        .nav-links a:hover {
-            border-bottom-color: white;
-            opacity: 0.9;
-        }
-        .nav-links .cart-icon {
-            font-size: 1.6rem;
-            position: relative;
-            color: white;
-        }
-        .cart-icon .badge {
-            position: absolute;
-            top: -10px;
-            right: -12px;
-            background: #ffb347;
-            color: #0a2647;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 0.2rem 0.5rem;
-            border-radius: 40px;
-        }
-        .whatsapp-link {
-            background: #25d366;
-            color: white !important;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: none !important;
-        }
-        .whatsapp-link:hover {
-            background: #1ebd5e;
-            transform: scale(1.02);
-        }
+    .brand i {
+      font-size: 2.4rem;
+      color: white;
+      filter: drop-shadow(0 0 4px #7bbaff);
+    }
 
-        /* ----- DEVISE & INFOS ----- */
-        .currency-bar {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.4rem 1.8rem;
-            border-radius: 40px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .currency-badge {
-            background: #1e3a5f;
-            padding: 0.2rem 1.2rem;
-            border-radius: 40px;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+    .brand h1 {
+      font-weight: 600;
+      font-size: 2.1rem;
+      letter-spacing: 1px;
+      color: white;
+      text-shadow: 0 2px 6px #004080;
+    }
+    .brand h1 span {
+      font-weight: 300;
+      color: #b3d9ff;
+    }
 
-        /* ----- SECTION PRODUITS (vitrine) ----- */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 1.2rem 0 0.8rem 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .section-title i {
-            color: white;
-        }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin: 1.5rem 0 2.5rem 0;
-        }
+    .header-actions .whatsapp {
+      background: #1f6dad;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: white;
+      border: 1px solid #4d94d1;
+      box-shadow: 0 0 6px #0066cc55;
+      transition: 0.2s;
+    }
+    .header-actions .whatsapp i {
+      font-size: 1.3rem;
+      color: #25D366;
+    }
+    .header-actions .whatsapp:hover {
+      background: #2a7fc7;
+      transform: scale(1.02);
+    }
 
-        .product-card {
-            background: #0f2b44;
-            border-radius: 28px;
-            padding: 1.5rem 1rem 1.2rem;
-            transition: 0.25s ease;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.3);
-            background: #123350;
-        }
-        .product-img {
-            font-size: 3.8rem;
-            margin-bottom: 0.4rem;
-            color: white;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-        }
-        .product-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 0.3rem 0 0.2rem;
-        }
-        .product-price {
-            font-size: 1.2rem;
-            background: #1b3f60;
-            padding: 0.2rem 1.2rem;
-            border-radius: 40px;
-            margin: 0.5rem 0 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .btn-primary {
-            background: white;
-            color: #0a2647;
-            border: none;
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: 0.15s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin-top: 4px;
-        }
-        .btn-primary i {
-            color: #0a2647;
-        }
-        .btn-primary:hover {
-            background: #e6f0ff;
-            transform: scale(1.02);
-        }
+    .cart-icon {
+      position: relative;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .cart-icon i {
+      color: white;
+    }
+    .cart-icon .badge {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: #ffb347;
+      color: #0b2d4a;
+      border-radius: 30px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
 
-        /* ----- ACTIONS : dépôt / achat / panier ----- */
-        .action-panel {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            background: #0b2b4a;
-            padding: 1.2rem 2rem;
-            border-radius: 70px;
-            margin: 1rem 0 2rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(4px);
-        }
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem 1.5rem;
-        }
-        .action-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.5rem 1.6rem;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .action-btn i {
-            color: white;
-        }
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-        .action-btn.deposit {
-            background: #1e4b6e;
-            border-color: #4791c7;
-        }
-        .action-btn.deposit:hover {
-            background: #26648b;
-        }
-        .cart-summary {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #0f2b44;
-            padding: 0.2rem 1.6rem 0.2rem 1.2rem;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .cart-summary span {
-            font-weight: 500;
-        }
-        .cart-summary i {
-            font-size: 1.6rem;
-            color: white;
-        }
+    .currency-badge {
+      background: #1f4e7a;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      border: 1px solid #4e8fc7;
+      color: white;
+      font-size: 0.9rem;
+    }
 
-        /* ----- FOOTER / WHATSAPP FIXE ----- */
-        .footer-note {
-            margin-top: 3rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 1.8rem;
-            font-size: 0.95rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-        .footer-note i {
-            margin-right: 6px;
-        }
-        .whatsapp-fixed {
-            background: #25d366;
-            color: white;
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+    /* NAV / PARAMÈTRES */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.8rem 2.5rem;
+      background: #123a5e;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      margin-bottom: 2.5rem;
+      border: 1px solid #2d6c9e;
+    }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      padding: 0.3rem 0.2rem;
+      border-bottom: 2px solid transparent;
+    }
+    .top-nav a i {
+      color: #9ac8ff;
+    }
+    .top-nav a:hover {
+      border-bottom-color: white;
+      color: #d4eaff;
+    }
+    .top-nav .active {
+      border-bottom-color: white;
+    }
 
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.8rem;
-                border-radius: 30px;
-                padding: 1rem;
-            }
-            .nav-links {
-                justify-content: center;
-                gap: 1rem;
-            }
-            .action-panel {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 1rem;
-                border-radius: 30px;
-            }
-            .action-buttons {
-                justify-content: center;
-            }
-            .cart-summary {
-                justify-content: center;
-            }
-            .currency-bar {
-                justify-content: center;
-                font-size: 1rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .logo { font-size: 1.5rem; }
-            .product-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-        }
-    </style>
+    /* BANNIÈRE DÉPÔT */
+    .deposit-banner {
+      background: linear-gradient(135deg, #0b3b66, #1b5a8c);
+      padding: 1.2rem 2rem;
+      border-radius: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      border: 1px solid #3d82b9;
+      box-shadow: 0 4px 12px #00000033;
+    }
+    .deposit-banner .left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .deposit-banner .left i {
+      font-size: 2.2rem;
+      color: #f5c542;
+    }
+    .deposit-banner .left span {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .deposit-btn {
+      background: #ffb347;
+      border: none;
+      color: #0b2d4a;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 1px solid #ffc97a;
+    }
+    .deposit-btn i {
+      color: #0b2d4a;
+    }
+    .deposit-btn:hover {
+      background: #ffa726;
+      transform: scale(1.02);
+      box-shadow: 0 0 12px #ffb347aa;
+    }
+
+    /* GRILLE PRODUITS */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid #4d94d1;
+      padding-left: 1rem;
+    }
+    .section-title h2 {
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    .section-title h2 i {
+      margin-right: 10px;
+      color: #7bbaff;
+    }
+    .section-title .count {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .product-card {
+      background: #f0f8ff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      transition: 0.25s ease;
+      color: #0b2d4a;
+      border: 1px solid #8fcbff;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px #00000066;
+    }
+    .product-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid #c0ddfa;
+    }
+    .product-info {
+      padding: 1rem 1rem 1.2rem;
+    }
+    .product-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #003d66;
+    }
+    .product-info .desc {
+      font-size: 0.85rem;
+      color: #1f4a6e;
+      margin-bottom: 0.5rem;
+      height: 2.4rem;
+      overflow: hidden;
+    }
+    .product-info .price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #003d66;
+      background: #d6eaff;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      margin: 0.3rem 0 0.6rem;
+    }
+    .product-info .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.6rem;
+    }
+    .btn-add {
+      background: #0b3b66;
+      border: none;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 1px solid #4d8ec9;
+    }
+    .btn-add i {
+      color: #b3d9ff;
+    }
+    .btn-add:hover {
+      background: #1d5c8f;
+      transform: scale(1.03);
+    }
+    .product-info .fa-heart {
+      color: #a0c4e8;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .product-info .fa-heart:hover {
+      color: #ff6688;
+    }
+
+    /* BAS DE PAGE */
+    .footer-note {
+      margin-top: 2.2rem;
+      border-top: 1px solid #2d6c9e;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #b3d0ed;
+    }
+    .footer-note i {
+      color: #7bbaff;
+      margin: 0 4px;
+    }
+    .footer-note .whatsapp-small {
+      background: #1a4c78;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 400;
+      border: 1px solid #3f7fb3;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .app { padding: 1rem; }
+      .header { flex-direction: column; align-items: start; gap: 12px; }
+      .top-nav { border-radius: 30px; gap: 1rem; }
+      .deposit-banner { flex-direction: column; align-items: start; gap: 12px; }
+    }
+  </style>
 </head>
 <body>
 <div class="app">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-crown"></i> ELITE MARKET
-        </div>
-        <div class="nav-links">
-            <a href="#"><i class="fas fa-home"></i> Accueil</a>
-            <a href="#"><i class="fas fa-tshirt"></i> Homme</a>
-            <a href="#"><i class="fas fa-female"></i> Femme</a>
-            <a href="#" class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge">3</span>
-            </a>
-            <a href="#" class="whatsapp-link" target="_blank">
-                <i class="fab fa-whatsapp"></i> +226 55303111
-            </a>
-        </div>
-    </nav>
-
-    <!-- Devise & infos -->
-    <div class="currency-bar">
-        <span><i class="fas fa-credit-card"></i> Monnaie : </span>
-        <span class="currency-badge"><i class="fas fa-coins"></i> FCFA</span>
-        <span style="opacity:0.8; margin-left: 0.5rem;"><i class="fas fa-check-circle"></i> Paiements sécurisés</span>
+  <!-- EN-TÊTE -->
+  <header class="header">
+    <div class="brand">
+      <i class="fas fa-crown"></i>
+      <h1>ELITE <span>MARKET</span></h1>
     </div>
-
-    <!-- TITRE VITRINE -->
-    <div class="section-title">
-        <i class="fas fa-store-alt"></i> Nouveautés · Élite
+    <div class="header-actions">
+      <div class="whatsapp">
+        <i class="fab fa-whatsapp"></i> +226 55 30 31 11
+      </div>
+      <div class="currency-badge">
+        <i class="fas fa-coins"></i> FCFA
+      </div>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge">3</span>
+      </div>
     </div>
+  </header>
 
-    <!-- GRILLE PRODUITS (modèles) -->
-    <div class="product-grid">
-        <!-- 1 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-tshirt"></i></div>
-            <div class="product-name">Polo Premium</div>
-            <div class="product-price">12 500 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
+  <!-- NAV PARAMÈTRES + PANIER -->
+  <nav class="top-nav">
+    <a href="#" class="active"><i class="fas fa-store"></i> Boutique</a>
+    <a href="#"><i class="fas fa-box"></i> Dépôts</a>
+    <a href="#"><i class="fas fa-sliders-h"></i> Paramètres</a>
+    <a href="#"><i class="fas fa-user-cog"></i> Mon compte</a>
+    <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#1f6dad; padding:0.1rem 0.7rem; border-radius:40px;">3</span></a>
+  </nav>
+
+  <!-- BANNIÈRE DÉPÔT -->
+  <div class="deposit-banner">
+    <div class="left">
+      <i class="fas fa-hand-holding-usd"></i>
+      <span><i class="fas fa-wallet"></i> Déposez jusqu'à <strong>500 000 FCFA</strong> en 1 clic</span>
+    </div>
+    <button class="deposit-btn" onclick="alert('Simulation de dépôt : +50 000 FCFA ajoutés')">
+      <i class="fas fa-arrow-circle-up"></i> Déposer maintenant
+    </button>
+  </div>
+
+  <!-- SECTION PRODUITS -->
+  <div class="section-title">
+    <h2><i class="fas fa-tshirt"></i> Nouveautés Burkina</h2>
+    <span class="count">12 articles</span>
+  </div>
+
+  <div class="product-grid">
+    <!-- Produit 1 : Vêtement femme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&h=300&fit=crop&crop=center" alt="Pagne Faso">
+      <div class="product-info">
+        <h3>Pagne wax Faso</h3>
+        <div class="desc">Tissu traditionnel 100% coton, motifs burkinabè</div>
+        <div class="price">12 500 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
         </div>
-        <!-- 2 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-user-tie"></i></div>
-            <div class="product-name">Chemise Bleu</div>
-            <div class="product-price">15 200 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
-        </div>
-        <!-- 3 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-female"></i></div>
-            <div class="product-name">Robe Élégante</div>
-            <div class="product-price">21 800 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
-        </div>
-        <!-- 4 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-shoe-prints"></i></div>
-            <div class="product-name">Baskets White</div>
-            <div class="product-price">18 400 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
-        </div>
-        <!-- 5 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-glasses"></i></div>
-            <div class="product-name">Lunettes solaires</div>
-            <div class="product-price">8 900 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
-        </div>
-        <!-- 6 -->
-        <div class="product-card">
-            <div class="product-img"><i class="fas fa-hat-cowboy"></i></div>
-            <div class="product-name">Casquette Elite</div>
-            <div class="product-price">5 300 FCFA</div>
-            <button class="btn-primary"><i class="fas fa-cart-plus"></i> Ajouter</button>
-        </div>
+      </div>
     </div>
 
-    <!-- PANEL DÉPÔT / ACHAT / PANIER -->
-    <div class="action-panel">
-        <div class="action-buttons">
-            <button class="action-btn deposit"><i class="fas fa-wallet"></i> Faire un dépôt</button>
-            <button class="action-btn"><i class="fas fa-shopping-bag"></i> Achat rapide</button>
-            <button class="action-btn"><i class="fas fa-credit-card"></i> Paiement FCFA</button>
+    <!-- Produit 2 : Homme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=300&fit=crop&crop=center" alt="Boubou homme">
+      <div class="product-info">
+        <h3>Boubou cérémonie</h3>
+        <div class="desc">Grand boubou brodé, fil d'or, disponible en tailles M-XXL</div>
+        <div class="price">32 000 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
         </div>
-        <div class="cart-summary">
-            <i class="fas fa-shopping-cart"></i>
-            <span>Panier : <strong>3</strong> articles</span>
-            <span style="font-weight:600;">54 200 FCFA</span>
+      </div>
+    </div>
+
+    <!-- Produit 3 : Accessoire / cuir -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&h=300&fit=crop&crop=center" alt="Sac en cuir">
+      <div class="product-info">
+        <h3>Sac bandoulière cuir</h3>
+        <div class="desc">Artisanat local, cuir de zébu, finition noire</div>
+        <div class="price">18 700 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
         </div>
+      </div>
     </div>
 
-    <!-- TITRE "MODÈLES" (visite supplémentaire) -->
-    <div class="section-title" style="margin-top: 1rem;">
-        <i class="fas fa-tshirt"></i> Autres modèles
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; background: rgba(255,255,255,0.03); padding: 1.4rem 1.8rem; border-radius: 50px; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.04);">
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-vest"></i> Veste Bleu</span>
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-socks"></i> Chaussettes pack</span>
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-belt"></i> Ceinture cuir</span>
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-ring"></i> Accessoires</span>
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-tint"></i> Parfum Élite</span>
-        <span style="background: #123a5e; padding: 0.4rem 1.4rem; border-radius: 40px;"><i class="fas fa-watch"></i> Montre</span>
-    </div>
-
-    <!-- FOOTER avec WhatsApp et infos -->
-    <div class="footer-note">
-        <span><i class="fas fa-store"></i> ELITE MARKET · Bleu & Blanc</span>
-        <span><i class="fas fa-phone-alt"></i> +226 55303111</span>
-        <a href="#" class="whatsapp-fixed" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp +226 55303111
-        </a>
-        <span><i class="fas fa-credit-card"></i> Paiement en FCFA</span>
-        <span><i class="fas fa-lock"></i> Sécurisé</span>
+    <!-- Produit 4 : Aliment / miel -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop&crop=center" alt="Miel du Burkina">
+      <div class="product-info">
+        <h3>Miel pur de savane</h3>
+        <div class="desc">Miel 100% naturel, produit dans les Cascades</div>
+        <div class="price">5 200 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
     </div>
 
-    <!-- petite note : panier accessible, dépôts, achats, modèles visibles -->
-    <div style="margin-top: 1.2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.25);">
-        <i class="fas fa-sync-alt"></i> Dépôts & achats disponibles · Tous les paramètres sont accessibles
+    <!-- Produit 5 : Artisanat / bronze -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1573157809734-2239c7d0f1a0?w=400&h=300&fit=crop&crop=center" alt="Statuette bronze">
+      <div class="product-info">
+        <h3>Statuette bronze</h3>
+        <div class="desc">Sculpture artisanale, motif animalier (hippopotame)</div>
+        <div class="price">9 800 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
     </div>
+
+    <!-- Produit 6 : Cosmétique / savon -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=400&h=300&fit=crop&crop=center" alt="Savon noir">
+      <div class="product-info">
+        <h3>Savon noir traditionnel</h3>
+        <div class="desc">Savon à base de karité, pour le corps et le visage</div>
+        <div class="price">2 900 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 7 : Chaussures homme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes cuir">
+      <div class="product-info">
+        <h3>Bottes en cuir</h3>
+        <div class="desc">Fabriquées à Ouagadougou, semelle renforcée</div>
+        <div class="price">28 500 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 8 : Tissu / Kente -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1584545030561-b0b8d4e27f0b?w=400&h=300&fit=crop&crop=center" alt="Tissu Kente">
+      <div class="product-info">
+        <h3>Étoffe Kente</h3>
+        <div class="desc">Tissu tissé main, motifs royaux, 2 mètres</div>
+        <div class="price">22 300 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 9 : Bijou -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=300&fit=crop&crop=center" alt="Bijou argent">
+      <div class="product-info">
+        <h3>Collier en argent</h3>
+        <div class="desc">Pendentif en forme de map du Burkina, artisanal</div>
+        <div class="price">15 000 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 10 : Décoration -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1567777888646-adca7afb43fc?w=400&h=300&fit=crop&crop=center" alt="Poterie">
+      <div class="product-info">
+        <h3>Poterie décorative</h3>
+        <div class="desc">Jarre en terre cuite, motifs peints à la main</div>
+        <div class="price">8 200 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 11 : Instrument -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1519074069444-1ba4f1efae9d?w=400&h=300&fit=crop&crop=center" alt="Djembe">
+      <div class="product-info">
+        <h3>Djembe professionnel</h3>
+        <div class="desc">Percussion en bois de caïlcédrat, peau de chèvre</div>
+        <div class="price">45 000 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 12 : Produit local -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&crop=center" alt="Huile de karité">
+      <div class="product-info">
+        <h3>Huile de karité bio</h3>
+        <div class="desc">Pressée à froid, 500ml, certifiée naturelle</div>
+        <div class="price">6 500 FCFA</div>
+        <div class="actions">
+          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIED DE PAGE -->
+  <footer class="footer-note">
+    <div>
+      <i class="fas fa-map-pin"></i> Ouagadougou · <i class="fas fa-phone"></i> +226 55 30 31 11 
+      <span style="margin-left: 1rem;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</span>
+    </div>
+    <div class="whatsapp-small">
+      <i class="fas fa-shopping-bag"></i> Dépôts & achats 24h/24
+    </div>
+  </footer>
+
+  <!-- PETIT RAPPEL : PANIER + DÉPÔT -->
+  <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #1e4f78; padding-top: 0.8rem;">
+    <span><i class="fas fa-check-circle" style="color:#66bb6a;"></i> Paiement sécurisé FCFA</span>
+    <span><i class="fas fa-truck"></i> Livraison Burkina Faso</span>
+    <span><i class="fas fa-credit-card"></i> Dépôt mobile money / Orange Money</span>
+  </div>
+
 </div>
-<!-- fin app -->
+<!-- Fin .app -->
 </body>
 </html>
