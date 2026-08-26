@@ -127,7 +127,7 @@
       font-size: 0.9rem;
     }
 
-    /* NAV / PARAMÈTRES */
+    /* NAV / PARAMÈTRES AVEC MENU DÉROULANT */
     .top-nav {
       display: flex;
       flex-wrap: wrap;
@@ -138,6 +138,7 @@
       border-radius: 60px;
       margin-bottom: 2.5rem;
       border: 1px solid #2d6c9e;
+      position: relative;
     }
     .top-nav a {
       color: white;
@@ -160,6 +161,49 @@
     }
     .top-nav .active {
       border-bottom-color: white;
+    }
+
+    /* MENU DÉROULANT (paramètres) */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #0a3b6b;
+      min-width: 200px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      z-index: 1;
+      top: 2.2rem;
+      left: 0;
+      border: 1px solid #538edb;
+      padding: 0.5rem 0;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 0.6rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: none;
+      font-weight: 400;
+    }
+    .dropdown-content a:hover {
+      background-color: #1f5a8f;
+      border-radius: 0;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown:hover .dropbtn {
+      border-bottom-color: white;
+    }
+    .dropbtn i {
+      margin-left: 6px;
+      font-size: 0.8rem;
     }
 
     /* BANNIÈRE DÉPÔT & LIVRAISON */
@@ -321,6 +365,9 @@
     .product-info .fa-heart:hover {
       color: #ff6688;
     }
+    .product-info .fa-heart.liked {
+      color: #ff4d6d;
+    }
 
     /* FILTRE CATÉGORIES */
     .filter-bar {
@@ -354,6 +401,58 @@
       background: #003d99;
     }
 
+    /* FAVORIS (paramètre) */
+    .favorites-panel {
+      background: #0a3b6b;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #538edb;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .favorites-panel .fav-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: white;
+    }
+    .favorites-panel .fav-title i {
+      color: #ff4d6d;
+      font-size: 1.4rem;
+    }
+    .fav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      color: #b3d0ed;
+    }
+    .fav-list span {
+      background: #1f5a8f;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .fav-list span i {
+      color: #ff4d6d;
+      font-size: 0.8rem;
+    }
+    .fav-list span:hover {
+      background: #2d7ab3;
+    }
+    .fav-empty {
+      color: #b3d0ed;
+      font-style: italic;
+    }
+
     /* BAS DE PAGE */
     .footer-note {
       margin-top: 2.2rem;
@@ -384,6 +483,7 @@
       .top-nav { border-radius: 30px; gap: 1rem; }
       .deposit-banner { flex-direction: column; align-items: start; gap: 12px; }
       .filter-bar { border-radius: 30px; gap: 0.6rem; }
+      .favorites-panel { flex-direction: column; align-items: start; gap: 0.8rem; }
     }
 
     /* LIVRAISON BADGE */
@@ -425,12 +525,20 @@
     </div>
   </header>
 
-  <!-- NAV PARAMÈTRES + PANIER -->
+  <!-- NAV PARAMÈTRES AVEC MENU DÉROULANT -->
   <nav class="top-nav">
     <a href="#" class="active"><i class="fas fa-store"></i> Boutique</a>
     <a href="#"><i class="fas fa-box"></i> Dépôts</a>
-    <a href="#"><i class="fas fa-sliders-h"></i> Paramètres</a>
-    <a href="#"><i class="fas fa-user-cog"></i> Mon compte</a>
+    <!-- MENU DÉROULANT PARAMÈTRES -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn"><i class="fas fa-sliders-h"></i> Paramètres <i class="fas fa-chevron-down"></i></a>
+      <div class="dropdown-content">
+        <a href="#" onclick="alert('⚙️ Paramètres généraux du compte')"><i class="fas fa-user-cog"></i> Mon compte</a>
+        <a href="#" onclick="document.getElementById('favPanel').scrollIntoView({behavior:'smooth'});"><i class="fas fa-heart" style="color:#ff4d6d;"></i> Mes favoris</a>
+        <a href="#" onclick="alert('🔔 Notifications activées')"><i class="fas fa-bell"></i> Notifications</a>
+        <a href="#" onclick="alert('🌙 Thème sombre activé')"><i class="fas fa-moon"></i> Thème</a>
+      </div>
+    </div>
     <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#1f6dad; padding:0.1rem 0.7rem; border-radius:40px;">3</span></a>
   </nav>
 
@@ -454,6 +562,19 @@
     <span onclick="alert('Filtre : Bijoux')"><i class="fas fa-gem"></i> Bijoux</span>
   </div>
 
+  <!-- PANEL FAVORIS (PARAMÈTRE) -->
+  <div id="favPanel" class="favorites-panel">
+    <div class="fav-title">
+      <i class="fas fa-heart"></i> Mes favoris
+    </div>
+    <div class="fav-list" id="favListContainer">
+      <span><i class="fas fa-tshirt"></i> Robe wax</span>
+      <span><i class="fas fa-gem"></i> Collier or</span>
+      <span><i class="fas fa-shoe-prints"></i> Baskets cuir</span>
+      <span class="fav-empty" style="display:none;">Aucun favori pour l'instant</span>
+    </div>
+  </div>
+
   <!-- SECTION PRODUITS -->
   <div class="section-title">
     <h2><i class="fas fa-tshirt"></i> Nouveautés</h2>
@@ -470,7 +591,7 @@
         <div class="price">18 500 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Robe wax ajoutée au panier (18 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Robe wax', 'fa-tshirt')"></i>
         </div>
       </div>
     </div>
@@ -484,7 +605,7 @@
         <div class="price">22 000 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Chemise boubou ajoutée au panier (22 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Chemise boubou', 'fa-male')"></i>
         </div>
       </div>
     </div>
@@ -498,7 +619,7 @@
         <div class="price">32 500 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Baskets ajoutées au panier (32 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Baskets cuir', 'fa-shoe-prints')"></i>
         </div>
       </div>
     </div>
@@ -512,7 +633,7 @@
         <div class="price">45 000 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Collier or ajouté au panier (45 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Collier or', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -526,7 +647,7 @@
         <div class="price">17 800 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Tunique pagne ajoutée au panier (17 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Tunique pagne', 'fa-female')"></i>
         </div>
       </div>
     </div>
@@ -540,7 +661,7 @@
         <div class="price">68 000 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Costume ajouté au panier (68 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Costume élégant', 'fa-male')"></i>
         </div>
       </div>
     </div>
@@ -554,7 +675,7 @@
         <div class="price">14 200 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Sandales ajoutées au panier (14 200 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Sandales cuir', 'fa-female')"></i>
         </div>
       </div>
     </div>
@@ -568,7 +689,7 @@
         <div class="price">12 900 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Bague argent ajoutée au panier (12 900 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Bague argent', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -582,7 +703,7 @@
         <div class="price">14 800 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Jupe wax ajoutée au panier (14 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Jupe longue wax', 'fa-female')"></i>
         </div>
       </div>
     </div>
@@ -596,7 +717,7 @@
         <div class="price">9 500 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Polo brodé ajouté au panier (9 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Polo brodé', 'fa-male')"></i>
         </div>
       </div>
     </div>
@@ -610,7 +731,7 @@
         <div class="price">36 000 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Bottes ajoutées au panier (36 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Bottes cuir', 'fa-shoe-prints')"></i>
         </div>
       </div>
     </div>
@@ -624,7 +745,7 @@
         <div class="price">28 500 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="alert('✅ Boucles d\'oreille ajoutées au panier (28 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Boucles or', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -651,5 +772,37 @@
 
 </div>
 <!-- Fin .app -->
-</body>
-</html>
+
+<script>
+  // Fonction pour gérer l'ajout/suppression des favoris
+  function toggleFav(element, productName, iconClass) {
+    const heart = element;
+    heart.classList.toggle('fas');
+    heart.classList.toggle('far');
+    heart.classList.toggle('liked');
+    
+    const favList = document.getElementById('favListContainer');
+    const emptyMsg = favList.querySelector('.fav-empty');
+    
+    // Vérifier si le produit est déjà dans la liste (par son nom)
+    const existing = Array.from(favList.querySelectorAll('span')).find(
+      span => span.textContent.trim() === productName
+    );
+    
+    if (heart.classList.contains('fas')) {
+      // Ajouter aux favoris
+      if (!existing) {
+        const newFav = document.createElement('span');
+        newFav.innerHTML = `<i class="fas ${iconClass}"></i> ${productName}`;
+        newFav.onclick = function() {
+          // Retirer des favoris en cliquant sur l'élément dans la liste
+          this.remove();
+          // Chercher le cœur correspondant et le désactiver
+          document.querySelectorAll('.product-card .fa-heart').forEach(heartEl => {
+            const parentInfo = heartEl.closest('.product-info');
+            if (parentInfo && parentInfo.querySelector('h3').textContent === productName) {
+              heartEl.classList.remove('fas', 'liked');
+              heartEl.classList.add('far');
+            }
+          });
+         
