@@ -172,11 +172,11 @@
       display: none;
       position: absolute;
       background-color: #0a3b6b;
-      min-width: 200px;
+      min-width: 220px;
       border-radius: 20px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.5);
       z-index: 1;
-      top: 2.2rem;
+      top: 2.5rem;
       left: 0;
       border: 1px solid #538edb;
       padding: 0.5rem 0;
@@ -190,6 +190,7 @@
       gap: 10px;
       border-bottom: none;
       font-weight: 400;
+      cursor: pointer;
     }
     .dropdown-content a:hover {
       background-color: #1f5a8f;
@@ -361,9 +362,10 @@
       color: #a0c4e8;
       transition: 0.2s;
       cursor: pointer;
+      font-size: 1.3rem;
     }
     .product-info .fa-heart:hover {
-      color: #ff6688;
+      transform: scale(1.2);
     }
     .product-info .fa-heart.liked {
       color: #ff4d6d;
@@ -412,6 +414,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      transition: all 0.3s ease;
     }
     .favorites-panel .fav-title {
       display: flex;
@@ -432,7 +435,7 @@
     }
     .fav-list span {
       background: #1f5a8f;
-      padding: 0.2rem 1rem;
+      padding: 0.3rem 1.2rem;
       border-radius: 30px;
       font-size: 0.85rem;
       display: flex;
@@ -446,7 +449,11 @@
       font-size: 0.8rem;
     }
     .fav-list span:hover {
-      background: #2d7ab3;
+      background: #e74c6f;
+      color: white;
+    }
+    .fav-list span:hover i {
+      color: white;
     }
     .fav-empty {
       color: #b3d0ed;
@@ -474,6 +481,68 @@
       border-radius: 30px;
       font-weight: 400;
       border: 1px solid #3f7fb3;
+    }
+
+    /* MODALE PANIER */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      color: #0b2d4a;
+      max-width: 500px;
+      width: 90%;
+      padding: 2rem;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px #000000aa;
+      border: 2px solid #0011ff;
+    }
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      color: #003d66;
+    }
+    .modal-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .modal-content ul li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+    }
+    .modal-content .total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-align: right;
+      color: #003d66;
+    }
+    .modal-content button {
+      background: #0011ff;
+      border: none;
+      color: white;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      border: 1px solid #7a8aff;
+    }
+    .modal-content button:hover {
+      background: #002fff;
     }
 
     /* RESPONSIVE */
@@ -518,9 +587,9 @@
       <div class="delivery-badge">
         <i class="fas fa-truck"></i> Livraison Burkina
       </div>
-      <div class="cart-icon" onclick="alert('🛒 Votre panier contient 3 articles. Total : 79 200 FCFA')">
+      <div class="cart-icon" onclick="openCart()">
         <i class="fas fa-shopping-cart"></i> 
-        <span class="badge">3</span>
+        <span class="badge" id="cartBadge">3</span>
       </div>
     </div>
   </header>
@@ -537,9 +606,10 @@
         <a href="#" onclick="document.getElementById('favPanel').scrollIntoView({behavior:'smooth'});"><i class="fas fa-heart" style="color:#ff4d6d;"></i> Mes favoris</a>
         <a href="#" onclick="alert('🔔 Notifications activées')"><i class="fas fa-bell"></i> Notifications</a>
         <a href="#" onclick="alert('🌙 Thème sombre activé')"><i class="fas fa-moon"></i> Thème</a>
+        <a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Voir le panier</a>
       </div>
     </div>
-    <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#1f6dad; padding:0.1rem 0.7rem; border-radius:40px;">3</span></a>
+    <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#1f6dad; padding:0.1rem 0.7rem; border-radius:40px;" id="navCartCount">3</span></a>
   </nav>
 
   <!-- BANNIÈRE DÉPÔT -->
@@ -571,7 +641,6 @@
       <span><i class="fas fa-tshirt"></i> Robe wax</span>
       <span><i class="fas fa-gem"></i> Collier or</span>
       <span><i class="fas fa-shoe-prints"></i> Baskets cuir</span>
-      <span class="fav-empty" style="display:none;">Aucun favori pour l'instant</span>
     </div>
   </div>
 
@@ -590,8 +659,8 @@
         <div class="desc">Coupe élégante, motifs burkinabè, 100% coton</div>
         <div class="price">18 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Robe wax ajoutée au panier (18 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Robe wax', 'fa-tshirt')"></i>
+          <button class="btn-add" onclick="addToCart('Robe imprimée wax', 18500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Robe imprimée wax', 'fa-tshirt')"></i>
         </div>
       </div>
     </div>
@@ -604,8 +673,8 @@
         <div class="desc">Brodé main, tissu Faso Dan Fani, tailles M-XXL</div>
         <div class="price">22 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Chemise boubou ajoutée au panier (22 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Chemise boubou', 'fa-male')"></i>
+          <button class="btn-add" onclick="addToCart('Chemise boubou homme', 22000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Chemise boubou homme', 'fa-male')"></i>
         </div>
       </div>
     </div>
@@ -618,8 +687,8 @@
         <div class="desc">Confortable, semelle renforcée, pour homme & femme</div>
         <div class="price">32 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Baskets ajoutées au panier (32 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Baskets cuir', 'fa-shoe-prints')"></i>
+          <button class="btn-add" onclick="addToCart('Baskets cuir', 32500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Baskets cuir', 'fa-shoe-prints')"></i>
         </div>
       </div>
     </div>
@@ -632,8 +701,8 @@
         <div class="desc">Pendentif forme de carte du Burkina, chaîne fine</div>
         <div class="price">45 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Collier or ajouté au panier (45 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Collier or', 'fa-gem')"></i>
+          <button class="btn-add" onclick="addToCart('Collier en or 18k', 45000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Collier en or 18k', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -646,7 +715,7 @@
         <div class="desc">Tissu Kente, manches 3/4, coupe fluide</div>
         <div class="price">17 800 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Tunique pagne ajoutée au panier (17 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Tunique pagne', 17800)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Tunique pagne', 'fa-female')"></i>
         </div>
       </div>
@@ -660,7 +729,7 @@
         <div class="desc">Veste + pantalon, tissu italien, coupe slim</div>
         <div class="price">68 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Costume ajouté au panier (68 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Costume élégant', 68000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Costume élégant', 'fa-male')"></i>
         </div>
       </div>
@@ -674,8 +743,8 @@
         <div class="desc">Artisanales, bride cheville, semelle confort</div>
         <div class="price">14 200 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Sandales ajoutées au panier (14 200 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Sandales cuir', 'fa-female')"></i>
+          <button class="btn-add" onclick="addToCart('Sandales en cuir', 14200)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Sandales en cuir', 'fa-female')"></i>
         </div>
       </div>
     </div>
@@ -688,8 +757,8 @@
         <div class="desc">Ornée de pierre naturelle, pour homme & femme</div>
         <div class="price">12 900 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Bague argent ajoutée au panier (12 900 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Bague argent', 'fa-gem')"></i>
+          <button class="btn-add" onclick="addToCart('Bague argent 925', 12900)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Bague argent 925', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -702,7 +771,7 @@
         <div class="desc">Motifs traditionnels, taille élastique, poches</div>
         <div class="price">14 800 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Jupe wax ajoutée au panier (14 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Jupe longue wax', 14800)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Jupe longue wax', 'fa-female')"></i>
         </div>
       </div>
@@ -716,7 +785,7 @@
         <div class="desc">Coton piqué, broderie ELITE, coloris noir/blanc</div>
         <div class="price">9 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Polo brodé ajouté au panier (9 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Polo brodé', 9500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Polo brodé', 'fa-male')"></i>
         </div>
       </div>
@@ -730,8 +799,8 @@
         <div class="desc">Semelle caoutchouc, doublure texturée, tailles 39-45</div>
         <div class="price">36 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Bottes ajoutées au panier (36 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Bottes cuir', 'fa-shoe-prints')"></i>
+          <button class="btn-add" onclick="addToCart('Bottes en cuir', 36000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Bottes en cuir', 'fa-shoe-prints')"></i>
         </div>
       </div>
     </div>
@@ -744,8 +813,8 @@
         <div class="desc">Or 18k, forme de map, pour femme et homme</div>
         <div class="price">28 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="alert('✅ Boucles d\'oreille ajoutées au panier (28 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Boucles or', 'fa-gem')"></i>
+          <button class="btn-add" onclick="addToCart('Boucles d\'oreille or', 28500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'Boucles d\'oreille or', 'fa-gem')"></i>
         </div>
       </div>
     </div>
@@ -755,54 +824,4 @@
   <footer class="footer-note">
     <div>
       <i class="fas fa-map-pin"></i> Dédougou · <i class="fas fa-phone"></i> +226 55 30 31 11 
-      <span style="margin-left: 1rem;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</span>
-    </div>
-    <div class="whatsapp-small">
-      <i class="fas fa-shipping-fast"></i> Expédition partout au Burkina
-    </div>
-  </footer>
-
-  <!-- PETIT RAPPEL : PANIER + DÉPÔT -->
-  <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #1e4f78; padding-top: 0.8rem;">
-    <span><i class="fas fa-check-circle" style="color:#66bb6a;"></i> Paiement sécurisé FCFA</span>
-    <span><i class="fas fa-truck"></i> Livraison 24-72h</span>
-    <span><i class="fas fa-credit-card"></i> Dépôt mobile money / Orange Money</span>
-    <span><i class="fas fa-exchange-alt"></i> Retour sous 7 jours</span>
-  </div>
-
-</div>
-<!-- Fin .app -->
-
-<script>
-  // Fonction pour gérer l'ajout/suppression des favoris
-  function toggleFav(element, productName, iconClass) {
-    const heart = element;
-    heart.classList.toggle('fas');
-    heart.classList.toggle('far');
-    heart.classList.toggle('liked');
-    
-    const favList = document.getElementById('favListContainer');
-    const emptyMsg = favList.querySelector('.fav-empty');
-    
-    // Vérifier si le produit est déjà dans la liste (par son nom)
-    const existing = Array.from(favList.querySelectorAll('span')).find(
-      span => span.textContent.trim() === productName
-    );
-    
-    if (heart.classList.contains('fas')) {
-      // Ajouter aux favoris
-      if (!existing) {
-        const newFav = document.createElement('span');
-        newFav.innerHTML = `<i class="fas ${iconClass}"></i> ${productName}`;
-        newFav.onclick = function() {
-          // Retirer des favoris en cliquant sur l'élément dans la liste
-          this.remove();
-          // Chercher le cœur correspondant et le désactiver
-          document.querySelectorAll('.product-card .fa-heart').forEach(heartEl => {
-            const parentInfo = heartEl.closest('.product-info');
-            if (parentInfo && parentInfo.querySelector('h3').textContent === productName) {
-              heartEl.classList.remove('fas', 'liked');
-              heartEl.classList.add('far');
-            }
-          });
-         
+      <span style="margin-left: 1rem;"><i class="fab fa-whatsapp" style="color
