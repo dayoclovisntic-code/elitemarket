@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELITE MARKET · Burkina</title>
+  <title>ELITE MARKET · Vêtements & Accessoires</title>
   <!-- Font Awesome 6 (gratuit) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -15,7 +15,7 @@
     }
 
     body {
-      background-color: #0a2a44; /* bleu profond */
+      background-color: #f1f3f5;
       color: white;
       min-height: 100vh;
       display: flex;
@@ -26,8 +26,8 @@
       max-width: 1300px;
       width: 100%;
       padding: 1.5rem 2rem;
-      background: #0b2d4a;
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      background: #1387ec;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
     }
 
     /* EN-TÊTE */
@@ -36,7 +36,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #1e5a8a;
+      border-bottom: 2px solid #ffffff;
       padding-bottom: 0.75rem;
       margin-bottom: 1.8rem;
     }
@@ -50,7 +50,7 @@
     .brand i {
       font-size: 2.4rem;
       color: white;
-      filter: drop-shadow(0 0 4px #7bbaff);
+      filter: drop-shadow(0 0 4px #3892f1);
     }
 
     .brand h1 {
@@ -81,16 +81,17 @@
       gap: 10px;
       font-weight: 500;
       color: white;
-      border: 1px solid #4d94d1;
-      box-shadow: 0 0 6px #0066cc55;
+      border: 1px solid #0011ff;
+      box-shadow: 0 0 6px #001aff55;
       transition: 0.2s;
+      cursor: pointer;
     }
     .header-actions .whatsapp i {
       font-size: 1.3rem;
       color: #25D366;
     }
     .header-actions .whatsapp:hover {
-      background: #2a7fc7;
+      background: #002fff;
       transform: scale(1.02);
     }
 
@@ -108,7 +109,7 @@
       position: absolute;
       top: -8px;
       right: -12px;
-      background: #ffb347;
+      background: #dbcd05;
       color: #0b2d4a;
       border-radius: 30px;
       padding: 0.2rem 0.6rem;
@@ -117,7 +118,7 @@
     }
 
     .currency-badge {
-      background: #1f4e7a;
+      background: #0000ff;
       padding: 0.3rem 1rem;
       border-radius: 30px;
       font-weight: 600;
@@ -132,7 +133,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 1.8rem 2.5rem;
-      background: #123a5e;
+      background: #3700ff;
       padding: 0.8rem 1.8rem;
       border-radius: 60px;
       margin-bottom: 2.5rem;
@@ -148,6 +149,7 @@
       transition: 0.2s;
       padding: 0.3rem 0.2rem;
       border-bottom: 2px solid transparent;
+      cursor: pointer;
     }
     .top-nav a i {
       color: #9ac8ff;
@@ -160,9 +162,9 @@
       border-bottom-color: white;
     }
 
-    /* BANNIÈRE DÉPÔT */
+    /* BANNIÈRE DÉPÔT & LIVRAISON */
     .deposit-banner {
-      background: linear-gradient(135deg, #0b3b66, #1b5a8c);
+      background: linear-gradient(135deg, #0400ff, #0011ff);
       padding: 1.2rem 2rem;
       border-radius: 60px;
       display: flex;
@@ -170,7 +172,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2.5rem;
-      border: 1px solid #3d82b9;
+      border: 1px solid #0004ff;
       box-shadow: 0 4px 12px #00000033;
     }
     .deposit-banner .left {
@@ -180,16 +182,16 @@
     }
     .deposit-banner .left i {
       font-size: 2.2rem;
-      color: #f5c542;
+      color: #ffffff;
     }
     .deposit-banner .left span {
       font-size: 1.2rem;
       font-weight: 500;
     }
     .deposit-btn {
-      background: #ffb347;
+      background: #0011ff;
       border: none;
-      color: #0b2d4a;
+      color: #fafafa;
       padding: 0.7rem 2rem;
       border-radius: 40px;
       font-weight: 700;
@@ -199,7 +201,7 @@
       gap: 12px;
       transition: 0.2s;
       cursor: pointer;
-      border: 1px solid #ffc97a;
+      border: 1px solid #877aff;
     }
     .deposit-btn i {
       color: #0b2d4a;
@@ -246,7 +248,7 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
       transition: 0.25s ease;
       color: #0b2d4a;
-      border: 1px solid #8fcbff;
+      border: 1px solid #0004ff;
     }
     .product-card:hover {
       transform: translateY(-6px);
@@ -320,6 +322,38 @@
       color: #ff6688;
     }
 
+    /* FILTRE CATÉGORIES */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      background: #0a3b6b;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      margin-bottom: 2rem;
+      border: 1px solid #538edb;
+    }
+    .filter-bar span {
+      color: white;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+    }
+    .filter-bar span i {
+      color: #ffd966;
+    }
+    .filter-bar span:hover, .filter-bar span.active-filter {
+      background: #1f5a8f;
+    }
+    .filter-bar span.active-filter {
+      background: #003d99;
+    }
+
     /* BAS DE PAGE */
     .footer-note {
       margin-top: 2.2rem;
@@ -349,6 +383,19 @@
       .header { flex-direction: column; align-items: start; gap: 12px; }
       .top-nav { border-radius: 30px; gap: 1rem; }
       .deposit-banner { flex-direction: column; align-items: start; gap: 12px; }
+      .filter-bar { border-radius: 30px; gap: 0.6rem; }
+    }
+
+    /* LIVRAISON BADGE */
+    .delivery-badge {
+      background: #0a3b6b;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 400;
+      border: 1px solid #3f7fb3;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
   </style>
 </head>
@@ -362,14 +409,17 @@
       <h1>ELITE <span>MARKET</span></h1>
     </div>
     <div class="header-actions">
-      <div class="whatsapp">
+      <div class="whatsapp" onclick="alert('Contactez-nous sur WhatsApp : +226 55 30 31 11')">
         <i class="fab fa-whatsapp"></i> +226 55 30 31 11
       </div>
       <div class="currency-badge">
         <i class="fas fa-coins"></i> FCFA
       </div>
-      <div class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
+      <div class="delivery-badge">
+        <i class="fas fa-truck"></i> Livraison Burkina
+      </div>
+      <div class="cart-icon" onclick="alert('🛒 Votre panier contient 3 articles. Total : 79 200 FCFA')">
+        <i class="fas fa-shopping-cart"></i> 
         <span class="badge">3</span>
       </div>
     </div>
@@ -390,182 +440,191 @@
       <i class="fas fa-hand-holding-usd"></i>
       <span><i class="fas fa-wallet"></i> Déposez jusqu'à <strong>500 000 FCFA</strong> en 1 clic</span>
     </div>
-    <button class="deposit-btn" onclick="alert('Simulation de dépôt : +50 000 FCFA ajoutés')">
+    <button class="deposit-btn" onclick="alert('✅ Simulation : +50 000 FCFA ajoutés à votre portefeuille.')">
       <i class="fas fa-arrow-circle-up"></i> Déposer maintenant
     </button>
   </div>
 
+  <!-- FILTRE CATÉGORIES -->
+  <div class="filter-bar">
+    <span class="active-filter"><i class="fas fa-th-list"></i> Tous</span>
+    <span onclick="alert('Filtre : Vêtements hommes')"><i class="fas fa-male"></i> Hommes</span>
+    <span onclick="alert('Filtre : Vêtements femmes')"><i class="fas fa-female"></i> Femmes</span>
+    <span onclick="alert('Filtre : Chaussures')"><i class="fas fa-shoe-prints"></i> Chaussures</span>
+    <span onclick="alert('Filtre : Bijoux')"><i class="fas fa-gem"></i> Bijoux</span>
+  </div>
+
   <!-- SECTION PRODUITS -->
   <div class="section-title">
-    <h2><i class="fas fa-tshirt"></i> Nouveautés Burkina</h2>
+    <h2><i class="fas fa-tshirt"></i> Nouveautés</h2>
     <span class="count">12 articles</span>
   </div>
 
   <div class="product-grid">
-    <!-- Produit 1 : Vêtement femme -->
+    <!-- 1 : Robe femme -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&h=300&fit=crop&crop=center" alt="Pagne Faso">
+      <img src="images/images (1).jpg" alt="Robe femme">
       <div class="product-info">
-        <h3>Pagne wax Faso</h3>
-        <div class="desc">Tissu traditionnel 100% coton, motifs burkinabè</div>
-        <div class="price">12 500 FCFA</div>
+        <h3>Robe imprimée wax</h3>
+        <div class="desc">Coupe élégante, motifs burkinabè, 100% coton</div>
+        <div class="price">18 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
+          <button class="btn-add" onclick="alert('✅ Robe wax ajoutée au panier (18 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
         </div>
       </div>
     </div>
 
-    <!-- Produit 2 : Homme -->
+    <!-- 2 : Chemise homme -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=300&fit=crop&crop=center" alt="Boubou homme">
+      <img src="images/images (2).jpg" alt="Chemise homme">
       <div class="product-info">
-        <h3>Boubou cérémonie</h3>
-        <div class="desc">Grand boubou brodé, fil d'or, disponible en tailles M-XXL</div>
-        <div class="price">32 000 FCFA</div>
+        <h3>Chemise boubou homme</h3>
+        <div class="desc">Brodé main, tissu Faso Dan Fani, tailles M-XXL</div>
+        <div class="price">22 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
+          <button class="btn-add" onclick="alert('✅ Chemise boubou ajoutée au panier (22 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
         </div>
       </div>
     </div>
 
-    <!-- Produit 3 : Accessoire / cuir -->
+    <!-- 3 : Baskets unisex -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&h=300&fit=crop&crop=center" alt="Sac en cuir">
+      <img src="images/images (3).jpg" alt="Baskets">
       <div class="product-info">
-        <h3>Sac bandoulière cuir</h3>
-        <div class="desc">Artisanat local, cuir de zébu, finition noire</div>
-        <div class="price">18 700 FCFA</div>
+        <h3>Baskets cuir</h3>
+        <div class="desc">Confortable, semelle renforcée, pour homme & femme</div>
+        <div class="price">32 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
+          <button class="btn-add" onclick="alert('✅ Baskets ajoutées au panier (32 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
         </div>
       </div>
     </div>
 
-    <!-- Produit 4 : Aliment / miel -->
+    <!-- 4 : Collier or -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop&crop=center" alt="Miel du Burkina">
+      <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=400&h=300&fit=crop&crop=center" alt="Collier">
       <div class="product-info">
-        <h3>Miel pur de savane</h3>
-        <div class="desc">Miel 100% naturel, produit dans les Cascades</div>
-        <div class="price">5 200 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 5 : Artisanat / bronze -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1573157809734-2239c7d0f1a0?w=400&h=300&fit=crop&crop=center" alt="Statuette bronze">
-      <div class="product-info">
-        <h3>Statuette bronze</h3>
-        <div class="desc">Sculpture artisanale, motif animalier (hippopotame)</div>
-        <div class="price">9 800 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 6 : Cosmétique / savon -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=400&h=300&fit=crop&crop=center" alt="Savon noir">
-      <div class="product-info">
-        <h3>Savon noir traditionnel</h3>
-        <div class="desc">Savon à base de karité, pour le corps et le visage</div>
-        <div class="price">2 900 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 7 : Chaussures homme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes cuir">
-      <div class="product-info">
-        <h3>Bottes en cuir</h3>
-        <div class="desc">Fabriquées à Ouagadougou, semelle renforcée</div>
-        <div class="price">28 500 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 8 : Tissu / Kente -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1584545030561-b0b8d4e27f0b?w=400&h=300&fit=crop&crop=center" alt="Tissu Kente">
-      <div class="product-info">
-        <h3>Étoffe Kente</h3>
-        <div class="desc">Tissu tissé main, motifs royaux, 2 mètres</div>
-        <div class="price">22 300 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 9 : Bijou -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=300&fit=crop&crop=center" alt="Bijou argent">
-      <div class="product-info">
-        <h3>Collier en argent</h3>
-        <div class="desc">Pendentif en forme de map du Burkina, artisanal</div>
-        <div class="price">15 000 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 10 : Décoration -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1567777888646-adca7afb43fc?w=400&h=300&fit=crop&crop=center" alt="Poterie">
-      <div class="product-info">
-        <h3>Poterie décorative</h3>
-        <div class="desc">Jarre en terre cuite, motifs peints à la main</div>
-        <div class="price">8 200 FCFA</div>
-        <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Produit 11 : Instrument -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1519074069444-1ba4f1efae9d?w=400&h=300&fit=crop&crop=center" alt="Djembe">
-      <div class="product-info">
-        <h3>Djembe professionnel</h3>
-        <div class="desc">Percussion en bois de caïlcédrat, peau de chèvre</div>
+        <h3>Collier en or 18k</h3>
+        <div class="desc">Pendentif forme de carte du Burkina, chaîne fine</div>
         <div class="price">45 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
+          <button class="btn-add" onclick="alert('✅ Collier or ajouté au panier (45 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
         </div>
       </div>
     </div>
 
-    <!-- Produit 12 : Produit local -->
+    <!-- 5 : Tunique femme -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&crop=center" alt="Huile de karité">
+      <img src="https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400&h=300&fit=crop&crop=center" alt="Tunique">
       <div class="product-info">
-        <h3>Huile de karité bio</h3>
-        <div class="desc">Pressée à froid, 500ml, certifiée naturelle</div>
-        <div class="price">6 500 FCFA</div>
+        <h3>Tunique pagne</h3>
+        <div class="desc">Tissu Kente, manches 3/4, coupe fluide</div>
+        <div class="price">17 800 FCFA</div>
         <div class="actions">
-          <button class="btn-add"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart"></i>
+          <button class="btn-add" onclick="alert('✅ Tunique pagne ajoutée au panier (17 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 : Costume homme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=300&fit=crop&crop=center" alt="Costume">
+      <div class="product-info">
+        <h3>Costume élégant</h3>
+        <div class="desc">Veste + pantalon, tissu italien, coupe slim</div>
+        <div class="price">68 000 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Costume ajouté au panier (68 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 : Sandales femme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop&crop=center" alt="Sandales">
+      <div class="product-info">
+        <h3>Sandales en cuir</h3>
+        <div class="desc">Artisanales, bride cheville, semelle confort</div>
+        <div class="price">14 200 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Sandales ajoutées au panier (14 200 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 : Bague argent -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop&crop=center" alt="Bague">
+      <div class="product-info">
+        <h3>Bague argent 925</h3>
+        <div class="desc">Ornée de pierre naturelle, pour homme & femme</div>
+        <div class="price">12 900 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Bague argent ajoutée au panier (12 900 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 : Jupe femme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop&crop=center" alt="Jupe">
+      <div class="product-info">
+        <h3>Jupe longue wax</h3>
+        <div class="desc">Motifs traditionnels, taille élastique, poches</div>
+        <div class="price">14 800 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Jupe wax ajoutée au panier (14 800 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 : Polo homme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=300&fit=crop&crop=center" alt="Polo">
+      <div class="product-info">
+        <h3>Polo brodé</h3>
+        <div class="desc">Coton piqué, broderie ELITE, coloris noir/blanc</div>
+        <div class="price">9 500 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Polo brodé ajouté au panier (9 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 : Bottes homme -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes">
+      <div class="product-info">
+        <h3>Bottes en cuir</h3>
+        <div class="desc">Semelle caoutchouc, doublure texturée, tailles 39-45</div>
+        <div class="price">36 000 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Bottes ajoutées au panier (36 000 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 : Boucle d'oreille -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop&crop=center" alt="Boucle d'oreille">
+      <div class="product-info">
+        <h3>Boucles d'oreille or</h3>
+        <div class="desc">Or 18k, forme de map, pour femme et homme</div>
+        <div class="price">28 500 FCFA</div>
+        <div class="actions">
+          <button class="btn-add" onclick="alert('✅ Boucles d\'oreille ajoutées au panier (28 500 FCFA)')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="this.classList.toggle('fas'); this.classList.toggle('far'); alert('❤️ Ajouté à vos favoris')"></i>
         </div>
       </div>
     </div>
@@ -578,15 +637,16 @@
       <span style="margin-left: 1rem;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</span>
     </div>
     <div class="whatsapp-small">
-      <i class="fas fa-shopping-bag"></i> Dépôts & achats 24h/24
+      <i class="fas fa-shipping-fast"></i> Expédition partout au Burkina
     </div>
   </footer>
 
   <!-- PETIT RAPPEL : PANIER + DÉPÔT -->
   <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #1e4f78; padding-top: 0.8rem;">
     <span><i class="fas fa-check-circle" style="color:#66bb6a;"></i> Paiement sécurisé FCFA</span>
-    <span><i class="fas fa-truck"></i> Livraison Burkina Faso</span>
+    <span><i class="fas fa-truck"></i> Livraison 24-72h</span>
     <span><i class="fas fa-credit-card"></i> Dépôt mobile money / Orange Money</span>
+    <span><i class="fas fa-exchange-alt"></i> Retour sous 7 jours</span>
   </div>
 
 </div>
