@@ -20,10 +20,16 @@
 
     body {
       background-color: #fcfcfc;
-      color: white;
+      color: #0a1e3d;
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body.dark-mode {
+      background-color: #0a0e1a;
+      color: #e8e8e8;
     }
 
     .app {
@@ -33,6 +39,11 @@
       background: #f5f6f7;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
       animation: fadeInApp 0.8s ease-out;
+      transition: background-color 0.4s ease;
+    }
+
+    body.dark-mode .app {
+      background: #12162b;
     }
 
     @keyframes fadeInApp {
@@ -50,6 +61,11 @@
       padding-bottom: 0.75rem;
       margin-bottom: 1.8rem;
       animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: border-color 0.4s ease;
+    }
+
+    body.dark-mode .header {
+      border-bottom-color: #4a7db5;
     }
 
     @keyframes slideDown {
@@ -65,8 +81,8 @@
 
     .brand i {
       font-size: 2.4rem;
-      color: #0a1e3d;
-      filter: drop-shadow(0 0 4px #0906cf);
+      color: #e02f2f;
+      filter: drop-shadow(0 0 4px #e02f2f55);
       transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .brand i:hover {
@@ -77,12 +93,20 @@
       font-weight: 600;
       font-size: 2.1rem;
       letter-spacing: 1px;
-      color: #0a1e3d;
-      text-shadow: 0 2px 6px #0b08d6;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    .brand h1 span {
-      font-weight: 300;
-      color: #0906da;
+    .brand h1 .elite {
+      color: rgb(53, 45, 128);
+    }
+    .brand h1 .market {
+      color: #e02f2f;
+    }
+
+    body.dark-mode .brand h1 .elite {
+      color: #ffffff;
+    }
+    body.dark-mode .brand h1 .market {
+      color: #e02f2f;
     }
 
     .header-actions {
@@ -116,6 +140,14 @@
       box-shadow: 0 8px 25px rgba(74, 125, 181, 0.4);
     }
 
+    body.dark-mode .header-actions .whatsapp {
+      background: #2a3a6b;
+      border-color: #5a8db5;
+    }
+    body.dark-mode .header-actions .whatsapp:hover {
+      background: #3a4a8a;
+    }
+
     .cart-icon {
       position: relative;
       font-size: 1.8rem;
@@ -142,6 +174,13 @@
       animation: pulseBadge 2s ease-in-out infinite;
     }
 
+    body.dark-mode .cart-icon {
+      color: #e8e8e8;
+    }
+    body.dark-mode .cart-icon i {
+      color: #e8e8e8;
+    }
+
     @keyframes pulseBadge {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.15); }
@@ -162,6 +201,14 @@
       transform: translateY(-3px);
     }
 
+    body.dark-mode .currency-badge {
+      background: #2a3a6b;
+      border-color: #5a8db5;
+    }
+    body.dark-mode .currency-badge:hover {
+      background: #3a4a8a;
+    }
+
     /* NAV / PARAMÈTRES AVEC MENU DÉROULANT */
     .top-nav {
       display: flex;
@@ -175,7 +222,14 @@
       border: 1px solid #4a7db5;
       position: relative;
       animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
     }
+
+    body.dark-mode .top-nav {
+      background: #1a2247;
+      border-color: #5a7db5;
+    }
+
     .top-nav a {
       color: white;
       text-decoration: none;
@@ -203,6 +257,13 @@
       border-bottom-color: rgb(240, 234, 234);
     }
 
+    body.dark-mode .top-nav a {
+      color: #d4d4d4;
+    }
+    body.dark-mode .top-nav a:hover {
+      color: #ffffff;
+    }
+
     /* MENU DÉROULANT (paramètres) */
     .dropdown {
       position: relative;
@@ -222,6 +283,12 @@
       padding: 0.5rem 0;
       animation: dropdownFade 0.3s ease;
     }
+
+    body.dark-mode .dropdown-content {
+      background-color: #1a2247;
+      border-color: #5a7db5;
+    }
+
     @keyframes dropdownFade {
       0% { opacity: 0; transform: translateY(-12px) scale(0.95); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -242,6 +309,11 @@
       background-color: #1a3a6b;
       padding-left: 2rem;
     }
+
+    body.dark-mode .dropdown-content a:hover {
+      background-color: #2a4a6b;
+    }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
@@ -255,6 +327,246 @@
     }
     .dropdown:hover .dropbtn i {
       transform: rotate(180deg);
+    }
+
+    /* --- CARROUSEL AUTOMATIQUE --- */
+    .hero-carousel {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      background: #0a1e3d;
+      height: 380px;
+    }
+
+    body.dark-mode .hero-carousel {
+      background: #0a1a3d;
+    }
+
+    .carousel-slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10, 30, 61, 0.85), rgba(26, 58, 107, 0.7));
+      z-index: 1;
+    }
+
+    body.dark-mode .carousel-slide::before {
+      background: linear-gradient(135deg, rgba(10, 14, 26, 0.9), rgba(26, 34, 71, 0.8));
+    }
+
+    .carousel-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 500px;
+      animation: slideContent 0.8s ease;
+    }
+
+    @keyframes slideContent {
+      0% { opacity: 0; transform: translateX(30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .carousel-content .badge-category {
+      display: inline-block;
+      background: #f58220;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .carousel-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .carousel-content h2 span {
+      color: #f58220;
+    }
+
+    .carousel-content p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .carousel-content .price-tag {
+      display: inline-block;
+      background: #4a7db5;
+      padding: 0.3rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-content .btn-carousel {
+      background: #f58220;
+      border: none;
+      color: white;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .carousel-content .btn-carousel:hover {
+      background: #e07a1e;
+      transform: scale(1.05) translateY(-2px);
+    }
+
+    .carousel-image {
+      position: relative;
+      z-index: 2;
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .carousel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Indicateurs du carrousel */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .carousel-indicators .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .carousel-indicators .dot.active {
+      background: #f58220;
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(245, 130, 32, 0.5);
+    }
+
+    .carousel-indicators .dot:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Flèches */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 15px;
+    }
+    .carousel-btn.next {
+      right: 15px;
+    }
+
+    /* Responsive carrousel */
+    @media (max-width: 768px) {
+      .hero-carousel {
+        height: auto;
+        min-height: 320px;
+      }
+      .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      .carousel-content h2 {
+        font-size: 1.6rem;
+      }
+      .carousel-image {
+        width: 140px;
+        height: 140px;
+      }
+      .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+      .carousel-btn.prev {
+        left: 5px;
+      }
+      .carousel-btn.next {
+        right: 5px;
+      }
     }
 
     /* BANNIÈRE DÉPÔT & LIVRAISON - HERO */
@@ -272,6 +584,12 @@
       animation: heroAppear 1s cubic-bezier(0.22, 1, 0.36, 1);
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
+    body.dark-mode .deposit-banner {
+      background: linear-gradient(135deg, #0a1a3d, #1a2a5b);
+      border-color: #5a7db5;
+    }
+
     .deposit-banner:hover {
       box-shadow: 0 8px 35px rgba(74, 125, 181, 0.35);
       transform: translateY(-3px);
@@ -329,6 +647,14 @@
       transform: rotate(20deg) scale(1.1);
     }
 
+    body.dark-mode .deposit-btn {
+      background: #5a7db5;
+      border-color: #7bbaff;
+    }
+    body.dark-mode .deposit-btn:hover {
+      background: #6a8dc5;
+    }
+
     /* GRILLE PRODUITS */
     .section-title {
       display: flex;
@@ -338,7 +664,13 @@
       border-left: 6px solid #4a7db5;
       padding-left: 1rem;
       animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: border-color 0.4s ease;
     }
+
+    body.dark-mode .section-title {
+      border-left-color: #5a7db5;
+    }
+
     @keyframes slideInLeft {
       0% { opacity: 0; transform: translateX(-30px); }
       100% { opacity: 1; transform: translateX(0); }
@@ -347,7 +679,13 @@
       font-weight: 400;
       letter-spacing: 1px;
       color: #0a1e3d;
+      transition: color 0.4s ease;
     }
+
+    body.dark-mode .section-title h2 {
+      color: #e8e8e8;
+    }
+
     .section-title h2 i {
       margin-right: 10px;
       color: #4a7db5;
@@ -356,6 +694,11 @@
       font-size: 0.9rem;
       opacity: 0.8;
       color: #1a3a6b;
+      transition: color 0.4s ease;
+    }
+
+    body.dark-mode .section-title .count {
+      color: #8a9abb;
     }
 
     .product-grid {
@@ -379,6 +722,12 @@
       transform: translateY(40px) scale(0.95);
     }
 
+    body.dark-mode .product-card {
+      background: #1a2247;
+      color: #e8e8e8;
+      border-color: #5a7db5;
+    }
+
     .product-card.hidden {
       display: none;
     }
@@ -398,6 +747,10 @@
       border-color: #7bbaff;
     }
 
+    body.dark-mode .product-card:hover {
+      border-color: #7bbaff;
+    }
+
     .product-card img {
       width: 100%;
       height: 190px;
@@ -410,6 +763,10 @@
       transform: scale(1.08);
     }
 
+    body.dark-mode .product-card img {
+      border-bottom-color: #5a7db5;
+    }
+
     .product-info {
       padding: 1rem 1rem 1.2rem;
       transition: all 0.4s ease;
@@ -418,14 +775,27 @@
       background: #f0f8ff;
     }
 
+    body.dark-mode .product-card:hover .product-info {
+      background: #2a3a6b;
+    }
+
     .product-info h3 {
       font-size: 1.1rem;
       margin-bottom: 0.3rem;
       color: #0a1e3d;
       transition: color 0.3s ease;
     }
+
+    body.dark-mode .product-info h3 {
+      color: #e8e8e8;
+    }
+
     .product-card:hover .product-info h3 {
       color: #1a3a6b;
+    }
+
+    body.dark-mode .product-card:hover .product-info h3 {
+      color: #b3d9ff;
     }
 
     .product-info .desc {
@@ -435,6 +805,11 @@
       height: 2.4rem;
       overflow: hidden;
     }
+
+    body.dark-mode .product-info .desc {
+      color: #aabbdd;
+    }
+
     .product-info .price {
       font-weight: 700;
       font-size: 1.2rem;
@@ -446,10 +821,21 @@
       margin: 0.3rem 0 0.6rem;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
+    body.dark-mode .product-info .price {
+      color: #0a1e3d;
+      background: #7bbaff;
+    }
+
     .product-card:hover .price {
       background: #4a7db5;
       color: white;
       transform: scale(1.06);
+    }
+
+    body.dark-mode .product-card:hover .price {
+      background: #5a8dc5;
+      color: white;
     }
 
     .product-info .actions {
@@ -485,6 +871,14 @@
       transform: translateX(5px);
     }
 
+    body.dark-mode .btn-add {
+      background: #2a3a6b;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .btn-add:hover {
+      background: #3a4a8a;
+    }
+
     .product-info .fa-heart {
       color: #4a7db5;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -499,13 +893,18 @@
       color: #ff4d6d;
       animation: heartPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
+    body.dark-mode .product-info .fa-heart {
+      color: #5a8dc5;
+    }
+
     @keyframes heartPop {
       0% { transform: scale(1); }
       40% { transform: scale(1.5); }
       100% { transform: scale(1); }
     }
 
-    /* FILTRE CATÉGORIES - RÉPARÉ */
+    /* FILTRE CATÉGORIES */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
@@ -516,7 +915,14 @@
       margin-bottom: 2rem;
       border: 1px solid #4a7db5;
       animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
     }
+
+    body.dark-mode .filter-bar {
+      background: #1a2247;
+      border-color: #5a7db5;
+    }
+
     .filter-bar span {
       color: white;
       font-weight: 500;
@@ -545,6 +951,13 @@
       box-shadow: 0 4px 15px rgba(74, 125, 181, 0.4);
     }
 
+    body.dark-mode .filter-bar span.active-filter {
+      background: #5a7db5;
+    }
+    body.dark-mode .filter-bar span:hover {
+      background: #2a3a6b;
+    }
+
     /* FAVORIS (paramètre) */
     .favorites-panel {
       background: #0d2647;
@@ -559,10 +972,22 @@
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
+    body.dark-mode .favorites-panel {
+      background: #1a2247;
+      border-color: #5a7db5;
+    }
+
     .favorites-panel:hover {
       border-color: #7bbaff;
       box-shadow: 0 6px 25px rgba(74, 125, 181, 0.25);
     }
+
+    body.dark-mode .favorites-panel:hover {
+      border-color: #7bbaff;
+      box-shadow: 0 6px 25px rgba(74, 125, 181, 0.15);
+    }
+
     .favorites-panel .fav-title {
       display: flex;
       align-items: center;
@@ -605,6 +1030,14 @@
       background: #4a7db5;
       transform: scale(1.05) translateY(-3px);
     }
+
+    body.dark-mode .fav-list span {
+      background: #2a3a6b;
+    }
+    body.dark-mode .fav-list span:hover {
+      background: #4a7db5;
+    }
+
     .fav-empty {
       color: #b3d9ff;
       font-style: italic;
@@ -623,7 +1056,13 @@
       align-items: center;
       z-index: 1000;
       animation: modalFade 0.35s ease;
+      transition: background 0.4s ease;
     }
+
+    body.dark-mode .modal {
+      background: rgba(10, 14, 26, 0.92);
+    }
+
     @keyframes modalFade {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -641,7 +1080,15 @@
       box-shadow: 0 20px 40px #000000aa;
       border: 2px solid #4a7db5;
       animation: modalSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
     }
+
+    body.dark-mode .modal-content {
+      background: #1a2247;
+      color: #e8e8e8;
+      border-color: #5a7db5;
+    }
+
     @keyframes modalSlideIn {
       0% { opacity: 0; transform: translateY(-40px) scale(0.92); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -649,7 +1096,13 @@
     .modal-content h3 {
       margin-bottom: 1rem;
       color: #0a1e3d;
+      transition: color 0.4s ease;
     }
+
+    body.dark-mode .modal-content h3 {
+      color: #e8e8e8;
+    }
+
     .modal-content ul {
       list-style: none;
       padding: 0;
@@ -663,7 +1116,13 @@
       justify-content: space-between;
       align-items: center;
       animation: slideInLeft 0.3s ease;
+      transition: border-color 0.4s ease;
     }
+
+    body.dark-mode .modal-content ul li {
+      border-bottom-color: #3a5a7b;
+    }
+
     .modal-content ul li .item-name {
       flex: 1;
     }
@@ -695,7 +1154,13 @@
       margin-top: 1rem;
       text-align: right;
       color: #0a1e3d;
+      transition: color 0.4s ease;
     }
+
+    body.dark-mode .modal-content .total {
+      color: #e8e8e8;
+    }
+
     .modal-content .btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -719,6 +1184,15 @@
       background: #1a3a6b;
       transform: scale(1.04);
     }
+
+    body.dark-mode .modal-content button {
+      background: #2a3a6b;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .modal-content button:hover {
+      background: #3a4a8a;
+    }
+
     .modal-content .btn-orange {
       background: #f58220;
       border-color: #f58220;
@@ -727,6 +1201,15 @@
       background: #e07a1e;
       border-color: #e07a1e;
     }
+
+    body.dark-mode .modal-content .btn-orange {
+      background: #f58220;
+      border-color: #f58220;
+    }
+    body.dark-mode .modal-content .btn-orange:hover {
+      background: #e07a1e;
+    }
+
     .modal-content .btn-whatsapp {
       background: #25D366;
       border-color: #25D366;
@@ -735,6 +1218,15 @@
       background: #1da851;
       border-color: #1da851;
     }
+
+    body.dark-mode .modal-content .btn-whatsapp {
+      background: #25D366;
+      border-color: #25D366;
+    }
+    body.dark-mode .modal-content .btn-whatsapp:hover {
+      background: #1da851;
+    }
+
     .modal-content .btn-danger {
       background: #e74c3c;
       border-color: #e74c3c;
@@ -743,6 +1235,7 @@
       background: #c0392b;
       border-color: #c0392b;
     }
+
     .modal-content .cart-empty {
       text-align: center;
       padding: 2rem 0;
@@ -753,18 +1246,38 @@
       margin-bottom: 1rem;
       color: #bdc3c7;
     }
+
+    body.dark-mode .modal-content .cart-empty {
+      color: #8a9abb;
+    }
+    body.dark-mode .modal-content .cart-empty i {
+      color: #5a6a8a;
+    }
+
     .payment-info {
       background: #f0f8ff;
       border-radius: 16px;
       padding: 1rem;
       margin: 1rem 0;
       border: 1px solid #b3d9ff;
+      transition: background-color 0.4s ease, border-color 0.4s ease;
     }
+
+    body.dark-mode .payment-info {
+      background: #1a2a4a;
+      border-color: #4a6a8a;
+    }
+
     .payment-info p {
       margin: 0.3rem 0;
       font-size: 0.9rem;
       color: #0a1e3d;
     }
+
+    body.dark-mode .payment-info p {
+      color: #c8d8ee;
+    }
+
     .payment-info .highlight {
       font-weight: 700;
       color: #f58220;
@@ -786,6 +1299,14 @@
       background: #1a3a6b;
       transform: scale(1.05);
     }
+
+    body.dark-mode .payment-info .ussd-code {
+      background: #2a3a6b;
+    }
+    body.dark-mode .payment-info .ussd-code:hover {
+      background: #3a4a8a;
+    }
+
     .payment-info .ussd-btn {
       display: inline-flex;
       align-items: center;
@@ -818,7 +1339,14 @@
       align-items: center;
       color: #13273b;
       animation: fadeInApp 0.8s ease-out;
+      transition: border-color 0.4s ease, color 0.4s ease;
     }
+
+    body.dark-mode .footer-note {
+      border-top-color: #3a5a7b;
+      color: #8a9abb;
+    }
+
     .footer-note i {
       color: #365675;
       margin: 0 4px;
@@ -827,6 +1355,11 @@
     .footer-note i:hover {
       transform: rotate(12deg) scale(1.15);
     }
+
+    body.dark-mode .footer-note i {
+      color: #6a8aab;
+    }
+
     .footer-note .whatsapp-small {
       background: #1a3a6b;
       padding: 0.3rem 1.2rem;
@@ -839,6 +1372,14 @@
     .footer-note .whatsapp-small:hover {
       background: #2a4a8a;
       transform: translateY(-3px);
+    }
+
+    body.dark-mode .footer-note .whatsapp-small {
+      background: #2a3a6b;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .footer-note .whatsapp-small:hover {
+      background: #3a4a8a;
     }
 
     /* BOUTON RETOUR EN HAUT */
@@ -878,6 +1419,14 @@
       transform: scale(0.9);
     }
 
+    body.dark-mode .back-to-top {
+      background: #5a7db5;
+      border-color: #7bbaff;
+    }
+    body.dark-mode .back-to-top:hover {
+      background: #6a8dc5;
+    }
+
     /* MESSAGE AUCUN RÉSULTAT */
     .no-results {
       grid-column: 1 / -1;
@@ -889,12 +1438,22 @@
       border-radius: 30px;
       border: 2px dashed #4a7db5;
       animation: fadeInApp 0.5s ease;
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
     }
     .no-results i {
       font-size: 3rem;
       color: #4a7db5;
       margin-bottom: 1rem;
       display: block;
+    }
+
+    body.dark-mode .no-results {
+      background: #1a2247;
+      color: #aabbdd;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .no-results i {
+      color: #5a8dc5;
     }
 
     /* RESPONSIVE */
@@ -927,6 +1486,14 @@
       transform: translateY(-3px);
     }
 
+    body.dark-mode .delivery-badge {
+      background: #2a3a6b;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .delivery-badge:hover {
+      background: #3a4a8a;
+    }
+
     /* BADGE ORANGE MONEY */
     .orange-badge {
       background: #f58220;
@@ -947,6 +1514,38 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(245, 130, 32, 0.4);
     }
+
+    /* BOUTON MODE SOMBRE */
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #4a7db5;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a3a6b;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 4px 15px rgba(74, 125, 181, 0.3);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: #2a3a6b;
+      border-color: #5a7db5;
+    }
+    body.dark-mode .theme-toggle:hover {
+      background: #3a4a8a;
+    }
+
+    .theme-toggle i {
+      font-size: 1.1rem;
+    }
   </style>
 </head>
 <body>
@@ -956,7 +1555,10 @@
   <header class="header">
     <div class="brand">
       <i class="fas fa-crown"></i>
-      <h1>ELITE <span>MARKET</span></h1>
+      <h1>
+        <span class="elite">ELITE</span>
+        <span class="market">MARKET</span>
+      </h1>
     </div>
     <div class="header-actions">
       <div class="whatsapp" onclick="window.open('https://wa.me/22655303111','_blank')">
@@ -971,6 +1573,9 @@
       <div class="delivery-badge">
         <i class="fas fa-truck"></i> Livraison Burkina
       </div>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+        <i class="fas fa-moon"></i> <span id="themeLabel">Sombre</span>
+      </button>
       <div class="cart-icon" onclick="openCart()">
         <i class="fas fa-shopping-cart"></i> 
         <span class="badge" id="cartBadge">3</span>
@@ -982,14 +1587,13 @@
   <nav class="top-nav">
     <a href="#" class="active"><i class="fas fa-store"></i> Boutique</a>
     <a href="#"><i class="fas fa-box"></i> Dépôts</a>
-    <!-- MENU DÉROULANT PARAMÈTRES -->
     <div class="dropdown">
       <a href="#" class="dropbtn"><i class="fas fa-sliders-h"></i> Paramètres <i class="fas fa-chevron-down"></i></a>
       <div class="dropdown-content">
         <a href="#" onclick="alert('⚙️ Paramètres généraux du compte')"><i class="fas fa-user-cog"></i> Mon compte</a>
         <a href="#" onclick="document.getElementById('favPanel').scrollIntoView({behavior:'smooth'});"><i class="fas fa-heart" style="color:#ff4d6d;"></i> Mes favoris</a>
         <a href="#" onclick="alert('🔔 Notifications activées')"><i class="fas fa-bell"></i> Notifications</a>
-        <a href="#" onclick="alert('🌙 Thème sombre activé')"><i class="fas fa-moon"></i> Thème</a>
+        <a href="#" onclick="toggleTheme()"><i class="fas fa-moon"></i> Mode sombre</a>
         <a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Voir le panier</a>
         <a href="#" onclick="alert('📦 Livraison partout au Burkina Faso')"><i class="fas fa-truck"></i> Livraison</a>
         <a href="#" onclick="callUSSD()"><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Payer par Orange Money</a>
@@ -998,7 +1602,77 @@
     <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#4a7db5; padding:0.1rem 0.7rem; border-radius:40px;" id="navCartCount">3</span></a>
   </nav>
 
-  <!-- BANNIÈRE DÉPÔT (HERO) -->
+  <!-- --- CARROUSEL AUTOMATIQUE --- -->
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="carousel-slides" id="carouselSlides">
+      <!-- Slide 1 -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=400&fit=crop&crop=center');">
+        <div class="carousel-content">
+          <span class="badge-category">👗 Nouveauté</span>
+          <h2>Collection <span>Wax</span> 2026</h2>
+          <p>Des robes et tenues traditionnelles aux motifs burkinabè authentiques.</p>
+          <div class="price-tag">Dès 12 500 FCFA</div>
+          <button class="btn-carousel" onclick="filterCategory('femme')"><i class="fas fa-arrow-right"></i> Découvrir</button>
+        </div>
+        <div class="carousel-image">
+          <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=400&fit=crop&crop=center" alt="Robe wax">
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=400&fit=crop&crop=center');">
+        <div class="carousel-content">
+          <span class="badge-category">🎩 Élégance</span>
+          <h2>Costumes <span>sur mesure</span></h2>
+          <p>Vestes et pantalons en tissu italien pour un style impeccable.</p>
+          <div class="price-tag">Dès 68 000 FCFA</div>
+          <button class="btn-carousel" onclick="filterCategory('homme')"><i class="fas fa-arrow-right"></i> Découvrir</button>
+        </div>
+        <div class="carousel-image">
+          <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=400&fit=crop&crop=center" alt="Costume">
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=800&h=400&fit=crop&crop=center');">
+        <div class="carousel-content">
+          <span class="badge-category">💎 Luxe</span>
+          <h2>Bijoux <span>précieux</span></h2>
+          <p>Colliers, bagues et boucles d'oreille en or et argent 18k.</p>
+          <div class="price-tag">Dès 6 000 FCFA</div>
+          <button class="btn-carousel" onclick="filterCategory('bijoux')"><i class="fas fa-arrow-right"></i> Découvrir</button>
+        </div>
+        <div class="carousel-image">
+          <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=400&h=400&fit=crop&crop=center" alt="Bijoux">
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=400&fit=crop&crop=center');">
+        <div class="carousel-content">
+          <span class="badge-category">👟 Confort</span>
+          <h2>Chaussures <span>tendance</span></h2>
+          <p>Baskets, sandales et bottes pour homme et femme.</p>
+          <div class="price-tag">Dès 9 500 FCFA</div>
+          <button class="btn-carousel" onclick="filterCategory('chaussures')"><i class="fas fa-arrow-right"></i> Découvrir</button>
+        </div>
+        <div class="carousel-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center" alt="Chaussures">
+        </div>
+      </div>
+    </div>
+
+    <!-- Flèches -->
+    <button class="carousel-btn prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button class="carousel-btn next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+
+    <!-- Indicateurs -->
+    <div class="carousel-indicators" id="carouselIndicators">
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+      <button class="dot" data-index="3"></button>
+    </div>
+  </div>
+
+  <!-- BANNIÈRE DÉPÔT -->
   <div class="deposit-banner">
     <div class="left">
       <i class="fas fa-hand-holding-usd"></i>
@@ -1009,7 +1683,7 @@
     </button>
   </div>
 
-  <!-- FILTRE CATÉGORIES - RÉPARÉ -->
+  <!-- FILTRE CATÉGORIES -->
   <div class="filter-bar" id="filterBar">
     <span class="active-filter" data-filter="all"><i class="fas fa-th-list"></i> Tous</span>
     <span data-filter="homme"><i class="fas fa-male"></i> Hommes</span>
@@ -1018,7 +1692,7 @@
     <span data-filter="bijoux"><i class="fas fa-gem"></i> Bijoux</span>
   </div>
 
-  <!-- PANEL FAVORIS (PARAMÈTRE) -->
+  <!-- PANEL FAVORIS -->
   <div id="favPanel" class="favorites-panel">
     <div class="fav-title">
       <i class="fas fa-heart"></i> Mes favoris
@@ -1032,31 +1706,31 @@
 
   <!-- SECTION PRODUITS -->
   <div class="section-title">
-    <h2><i class="fas fa-tshirt"></i> Nouveautés</h2>
+    <h2><i class="fas fa-tshirt"></i>NOS PRODUITS</h2>
     <span class="count" id="productCount">12 articles</span>
   </div>
 
   <div class="product-grid" id="productGrid">
-    <!-- 1 : Robe femme - catégorie femme -->
+    <!-- 1 : Robe femme -->
     <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=300&fit=crop&crop=center" alt="Robe femme">
       <div class="product-info">
         <h3>Robe imprimée wax</h3>
         <div class="desc">Coupe élégante, motifs burkinabè, 100% coton</div>
-        <div class="price">18 500 FCFA</div>
+        <div class="price">12 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="addToCart('Robe imprimée wax', 18500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Robe imprimée wax', 12500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="fas fa-heart liked" onclick="toggleFav(this, 'Robe imprimée wax', 'fa-tshirt')"></i>
         </div>
       </div>
     </div>
 
-    <!-- 2 : Chemise homme - catégorie homme -->
+    <!-- 2 : Chemise homme -->
     <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop&crop=center" alt="Chemise homme">
       <div class="product-info">
         <h3>Chemise boubou homme</h3>
-        <div class="desc">Brodé main, tissu Faso Dan Fani, tailles M-XXL</div>
+        <div class="desc">Brodé main, Kôkô Dônda, tailles M-XXL</div>
         <div class="price">22 000 FCFA</div>
         <div class="actions">
           <button class="btn-add" onclick="addToCart('Chemise boubou homme', 22000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
@@ -1065,21 +1739,21 @@
       </div>
     </div>
 
-    <!-- 3 : Baskets - catégorie chaussures -->
+    <!-- 3 : Baskets -->
     <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center" alt="Baskets">
       <div class="product-info">
         <h3>Baskets cuir</h3>
         <div class="desc">Confortable, semelle renforcée, pour homme & femme</div>
-        <div class="price">32 500 FCFA</div>
+        <div class="price">25 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="addToCart('Baskets cuir', 32500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Baskets cuir', 25500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="fas fa-heart liked" onclick="toggleFav(this, 'Baskets cuir', 'fa-shoe-prints')"></i>
         </div>
       </div>
     </div>
 
-    <!-- 4 : Collier or - catégorie bijoux -->
+    <!-- 4 : Collier or -->
     <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=400&h=300&fit=crop&crop=center" alt="Collier">
       <div class="product-info">
@@ -1093,7 +1767,7 @@
       </div>
     </div>
 
-    <!-- 5 : Tunique femme - catégorie femme -->
+    <!-- 5 : Tunique femme -->
     <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400&h=300&fit=crop&crop=center" alt="Tunique">
       <div class="product-info">
@@ -1107,7 +1781,7 @@
       </div>
     </div>
 
-    <!-- 6 : Costume homme - catégorie homme -->
+    <!-- 6 : Costume homme -->
     <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=300&fit=crop&crop=center" alt="Costume">
       <div class="product-info">
@@ -1121,35 +1795,35 @@
       </div>
     </div>
 
-    <!-- 7 : Sandales femme - catégorie chaussures -->
+    <!-- 7 : Sandales -->
     <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop&crop=center" alt="Sandales">
       <div class="product-info">
         <h3>Sandales en cuir</h3>
         <div class="desc">Artisanales, bride cheville, semelle confort</div>
-        <div class="price">14 200 FCFA</div>
+        <div class="price">9 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="addToCart('Sandales en cuir', 14200)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Sandales en cuir', 9500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Sandales en cuir', 'fa-female')"></i>
         </div>
       </div>
     </div>
 
-    <!-- 8 : Bague argent - catégorie bijoux -->
+    <!-- 8 : Bague argent -->
     <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop&crop=center" alt="Bague">
       <div class="product-info">
         <h3>Bague argent 925</h3>
         <div class="desc">Ornée de pierre naturelle, pour homme & femme</div>
-        <div class="price">12 900 FCFA</div>
+        <div class="price">6 000 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="addToCart('Bague argent 925', 12900)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <button class="btn-add" onclick="addToCart('Bague argent 925', 6000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
           <i class="far fa-heart" onclick="toggleFav(this, 'Bague argent 925', 'fa-gem')"></i>
         </div>
       </div>
     </div>
 
-    <!-- 9 : Jupe femme - catégorie femme -->
+    <!-- 9 : Jupe femme -->
     <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop&crop=center" alt="Jupe">
       <div class="product-info">
@@ -1163,21 +1837,21 @@
       </div>
     </div>
 
-    <!-- 10 : Polo homme - catégorie homme -->
+    <!-- 10 : T-Shirt homme -->
     <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=300&fit=crop&crop=center" alt="Polo">
       <div class="product-info">
-        <h3>Polo brodé</h3>
+        <h3>T-Shirt ELITE</h3>
         <div class="desc">Coton piqué, broderie ELITE, coloris noir/blanc</div>
         <div class="price">9 500 FCFA</div>
         <div class="actions">
-          <button class="btn-add" onclick="addToCart('Polo brodé', 9500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Polo brodé', 'fa-male')"></i>
+          <button class="btn-add" onclick="addToCart('T-Shirt ELITE', 9500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <i class="far fa-heart" onclick="toggleFav(this, 'T-Shirt ELITE', 'fa-male')"></i>
         </div>
       </div>
     </div>
 
-    <!-- 11 : Bottes - catégorie chaussures -->
+    <!-- 11 : Bottes -->
     <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes">
       <div class="product-info">
@@ -1191,7 +1865,7 @@
       </div>
     </div>
 
-    <!-- 12 : Boucle d'oreille - catégorie bijoux -->
+    <!-- 12 : Boucle d'oreille -->
     <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop&crop=center" alt="Boucle d'oreille">
       <div class="product-info">
@@ -1217,8 +1891,7 @@
     </div>
   </footer>
 
-  <!-- PETIT RAPPEL : PANIER -->
-  <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #4a7db5; padding-top: 0.8rem; color: #1a3a6b;">
+  <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #4a7db5; padding-top: 0.8rem; color: #1a3a6b; transition: border-color 0.4s ease, color 0.4s ease;">
     <span><i class="fas fa-check-circle" style="color:#66bb6a;"></i> Paiement sécurisé FCFA</span>
     <span><i class="fas fa-truck"></i> Livraison 24-72h</span>
     <span><i class="fas fa-credit-card"></i> Orange Money / Mobile Money</span>
@@ -1226,7 +1899,6 @@
   </div>
 
 </div>
-<!-- Fin .app -->
 
 <!-- BOUTON RETOUR EN HAUT -->
 <button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -1239,19 +1911,19 @@
     <h3><i class="fas fa-shopping-cart"></i> Votre panier</h3>
     <div id="cartContent">
       <ul id="cartItems">
-        <li><span class="item-name">Robe imprimée wax</span> <span class="item-price">18 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(0)"><i class="fas fa-times"></i></button></li>
+        <li><span class="item-name">Robe imprimée wax</span> <span class="item-price">12 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(0)"><i class="fas fa-times"></i></button></li>
         <li><span class="item-name">Collier en or 18k</span> <span class="item-price">45 000 FCFA</span> <button class="btn-remove" onclick="removeFromCart(1)"><i class="fas fa-times"></i></button></li>
-        <li><span class="item-name">Baskets cuir</span> <span class="item-price">32 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(2)"><i class="fas fa-times"></i></button></li>
+        <li><span class="item-name">Baskets cuir</span> <span class="item-price">25 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(2)"><i class="fas fa-times"></i></button></li>
       </ul>
-      <div class="total" id="cartTotal">Total : 96 000 FCFA</div>
+      <div class="total" id="cartTotal">Total : 83 000 FCFA</div>
     </div>
     <div class="payment-info">
       <p><i class="fas fa-mobile-alt" style="color:#f58220;"></i> <strong>Paiement par Orange Money</strong></p>
       <p>📱 Numéro : <span class="highlight">+226 55 30 31 11</span></p>
-      <p>💳 Montant : <span class="highlight" id="paymentAmount">96 000 FCFA</span></p>
+      <p>💳 Montant : <span class="highlight" id="paymentAmount">83 000 FCFA</span></p>
       <p style="margin-top: 0.8rem;">
         <strong>📞 Code USSD :</strong>
-        <span class="ussd-code" onclick="callUSSD()" id="ussdCodeDisplay">*144*2*1*55303111*96000#</span>
+        <span class="ussd-code" onclick="callUSSD()" id="ussdCodeDisplay">*144*2*1*55303111*83000#</span>
         <button class="ussd-btn" onclick="callUSSD()"><i class="fas fa-phone"></i> Composer le code</button>
       </p>
     </div>
@@ -1272,12 +1944,12 @@
       <p><strong>💳 Procédure de paiement :</strong></p>
       <p>1️⃣ Composez le code USSD ci-dessous sur votre téléphone :</p>
       <p style="font-size: 1.4rem; color: #f58220; font-weight: 700; text-align: center; padding: 0.5rem; background: #0a1e3d; border-radius: 12px; color: white; letter-spacing: 2px; cursor: pointer;" onclick="callUSSD()" id="ussdCodeModal">
-        *144*2*1*55303111*96000#
+        *144*2*1*55303111*83000#
       </p>
-      <p>2️⃣ Le montant de <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">96 000 FCFA</strong> sera automatiquement pré-rempli.</p>
+      <p>2️⃣ Le montant de <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">83 000 FCFA</strong> sera automatiquement pré-rempli.</p>
       <p>3️⃣ Confirmez le paiement avec votre code secret.</p>
       <hr style="margin: 0.8rem 0; border-color: #f58220;">
-      <p><strong>📦 Montant à payer :</strong> <span style="color:#f58220; font-size:1.3rem; font-weight:700;" id="paymentModalAmount2">96 000 FCFA</span></p>
+      <p><strong>📦 Montant à payer :</strong> <span style="color:#f58220; font-size:1.3rem; font-weight:700;" id="paymentModalAmount2">83 000 FCFA</span></p>
       <p style="font-size: 0.85rem; color: #555;">💡 Le code USSD vous permet de payer directement depuis votre téléphone.</p>
     </div>
     <div class="btn-group">
@@ -1291,20 +1963,100 @@
 </div>
 
 <script>
-  // Variables du panier
-  let cart = [
-    { name: 'Robe imprimée wax', price: 18500 },
-    { name: 'Collier en or 18k', price: 45000 },
-    { name: 'Baskets cuir', price: 32500 }
-  ];
-  let cartCount = 3;
+  // ========== CARROUSEL AUTOMATIQUE ==========
+  let currentSlide = 0;
+  const totalSlides = 4;
+  let autoSlideInterval;
 
-  // --- FILTRES RÉPARÉS ---
+  function goToSlide(index) {
+    const slides = document.getElementById('carouselSlides');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    
+    currentSlide = index;
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+    resetAutoSlide();
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide - 1);
+    resetAutoSlide();
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      goToSlide(currentSlide + 1);
+    }, 5000);
+  }
+
+  // Initialisation du carrousel
+  document.addEventListener('DOMContentLoaded', function() {
+    // Dots click
+    document.querySelectorAll('.dot').forEach(dot => {
+      dot.addEventListener('click', function() {
+        const index = parseInt(this.dataset.index);
+        goToSlide(index);
+        resetAutoSlide();
+      });
+    });
+    
+    // Démarrer le carrousel automatique
+    autoSlideInterval = setInterval(() => {
+      goToSlide(currentSlide + 1);
+    }, 5000);
+  });
+
+  // ========== FONCTION FILTRE CATÉGORIE ==========
+  function filterCategory(category) {
+    const filterSpan = document.querySelector(`.filter-bar span[data-filter="${category}"]`);
+    if (filterSpan) {
+      filterSpan.click();
+      document.getElementById('filterBar').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // ========== FONCTION MODE SOMBRE ==========
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    const icon = themeToggle.querySelector('i');
+    
+    if (document.body.classList.contains('dark-mode')) {
+      themeLabel.textContent = 'Clair';
+      icon.className = 'fas fa-sun';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeLabel.textContent = 'Sombre';
+      icon.className = 'fas fa-moon';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    const icon = themeToggle.querySelector('i');
+    themeLabel.textContent = 'Clair';
+    icon.className = 'fas fa-sun';
+  }
+
+  // ========== FILTRES ==========
   document.querySelectorAll('.filter-bar span').forEach(filter => {
     filter.addEventListener('click', function() {
-      // Retirer la classe active de tous les filtres
       document.querySelectorAll('.filter-bar span').forEach(f => f.classList.remove('active-filter'));
-      // Ajouter la classe active au filtre cliqué
       this.classList.add('active-filter');
 
       const filterValue = this.dataset.filter;
@@ -1323,11 +2075,9 @@
         }
       });
 
-      // Mettre à jour le compteur
       const countEl = document.getElementById('productCount');
       countEl.textContent = visibleCount + ' article' + (visibleCount > 1 ? 's' : '');
 
-      // Afficher un message si aucun résultat
       const grid = document.getElementById('productGrid');
       const existingNoResults = grid.querySelector('.no-results');
       if (visibleCount === 0) {
@@ -1345,11 +2095,17 @@
     });
   });
 
-  // Fonction pour appeler le code USSD Orange Money avec le montant
+  // ========== PANIER ==========
+  let cart = [
+    { name: 'Robe imprimée wax', price: 12500 },
+    { name: 'Collier en or 18k', price: 45000 },
+    { name: 'Baskets cuir', price: 25500 }
+  ];
+  let cartCount = 3;
+
   function callUSSD() {
     const total = getTotal();
     const ussdCode = `*144*2*1*55303111*${total}#`;
-    
     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       window.location.href = `tel:${ussdCode}`;
     } else {
@@ -1357,44 +2113,34 @@
     }
   }
 
-  // Fonction pour obtenir le total du panier
   function getTotal() {
     return cart.reduce((sum, item) => sum + item.price, 0);
   }
 
-  // Mettre à jour le code USSD avec le montant dynamique
   function updateUSSDCode() {
     const total = getTotal();
     const ussdCode = `*144*2*1*55303111*${total}#`;
-    
     const ussdDisplay = document.getElementById('ussdCodeDisplay');
     if (ussdDisplay) ussdDisplay.textContent = ussdCode;
-    
     const ussdModal = document.getElementById('ussdCodeModal');
     if (ussdModal) ussdModal.textContent = ussdCode;
-    
     const paymentAmount = document.getElementById('paymentAmount');
     if (paymentAmount) paymentAmount.textContent = total.toLocaleString() + ' FCFA';
-    
     const paymentModalAmount = document.getElementById('paymentModalAmount');
     if (paymentModalAmount) paymentModalAmount.textContent = total.toLocaleString() + ' FCFA';
-    
     const paymentModalAmount2 = document.getElementById('paymentModalAmount2');
     if (paymentModalAmount2) paymentModalAmount2.textContent = total.toLocaleString() + ' FCFA';
   }
 
-  // Fonction pour ouvrir le panier
   function openCart() {
     updateCartDisplay();
     document.getElementById('cartModal').classList.add('show');
   }
 
-  // Fonction pour fermer le panier
   function closeCart() {
     document.getElementById('cartModal').classList.remove('show');
   }
 
-  // Fonction pour fermer la modale de paiement
   function closePaymentModal() {
     document.getElementById('paymentModal').classList.remove('show');
   }
@@ -1403,36 +2149,24 @@
     if (e.target === this) this.classList.remove('show');
   });
 
-  // Mettre à jour l'affichage du panier
   function updateCartDisplay() {
     const cartItems = document.getElementById('cartItems');
     cartItems.innerHTML = '';
-    
     if (cart.length === 0) {
-      cartItems.innerHTML = `
-        <div class="cart-empty">
-          <i class="fas fa-shopping-bag"></i>
-          <p>Votre panier est vide</p>
-        </div>
-      `;
+      cartItems.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Votre panier est vide</p></div>`;
       document.getElementById('cartTotal').textContent = 'Total : 0 FCFA';
       document.getElementById('paymentAmount').textContent = '0 FCFA';
     } else {
       let total = 0;
       cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.innerHTML = `
-          <span class="item-name">${item.name}</span>
-          <span class="item-price">${item.price.toLocaleString()} FCFA</span>
-          <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fas fa-times"></i></button>
-        `;
+        li.innerHTML = `<span class="item-name">${item.name}</span><span class="item-price">${item.price.toLocaleString()} FCFA</span><button class="btn-remove" onclick="removeFromCart(${index})"><i class="fas fa-times"></i></button>`;
         cartItems.appendChild(li);
         total += item.price;
       });
       document.getElementById('cartTotal').textContent = `Total : ${total.toLocaleString()} FCFA`;
       document.getElementById('paymentAmount').textContent = `${total.toLocaleString()} FCFA`;
     }
-    
     document.getElementById('cartBadge').textContent = cartCount;
     document.getElementById('navCartCount').textContent = cartCount;
     updateUSSDCode();
@@ -1442,7 +2176,6 @@
     if (e.target === this) this.classList.remove('show');
   });
 
-  // Ajouter au panier
   function addToCart(name, price) {
     cart.push({ name, price });
     cartCount++;
@@ -1452,7 +2185,6 @@
     updateUSSDCode();
   }
 
-  // Supprimer un article du panier
   function removeFromCart(index) {
     if (cart.length === 0) return;
     const removed = cart[index];
@@ -1463,7 +2195,6 @@
     updateUSSDCode();
   }
 
-  // Vider tout le panier
   function clearCart() {
     if (cart.length === 0) {
       alert('🛒 Votre panier est déjà vide');
@@ -1478,13 +2209,11 @@
     }
   }
 
-  // Valider la commande via WhatsApp
   function validateOrder() {
     if (cart.length === 0) {
       alert('🛒 Votre panier est vide. Ajoutez des articles avant de valider.');
       return;
     }
-    
     const total = getTotal();
     let message = '🛍️ *NOUVELLE COMMANDE ELITE MARKET*%0A%0A';
     cart.forEach(item => {
@@ -1495,14 +2224,13 @@
     message += `📱 WhatsApp : +226 55 30 31 11%0A`;
     message += `💳 Paiement : Orange Money au *144*2*1*55303111*${total}#%0A%0A`;
     message += `✅ Merci de confirmer ma commande.`;
-
     const phoneNumber = '22655303111';
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, '_blank');
     closeCart();
   }
 
-  // Gestion des favoris
+  // ========== FAVORIS ==========
   function toggleFav(element, productName, iconClass) {
     const heart = element;
     heart.classList.toggle('fas');
@@ -1511,10 +2239,7 @@
     
     const favList = document.getElementById('favListContainer');
     const emptyMsg = favList.querySelector('.fav-empty');
-    
-    const existing = Array.from(favList.querySelectorAll('span')).find(
-      span => span.textContent.trim() === productName
-    );
+    const existing = Array.from(favList.querySelectorAll('span')).find(span => span.textContent.trim() === productName);
     
     if (heart.classList.contains('fas')) {
       if (!existing) {
@@ -1544,7 +2269,7 @@
     }
   }
 
-  // Gestion du bouton Retour en haut
+  // ========== RETOUR EN HAUT ==========
   const backToTopBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 300) {
@@ -1554,7 +2279,6 @@
     }
   });
 
-  // Initialisation
   updateUSSDCode();
 </script>
 </body>
