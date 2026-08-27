@@ -669,6 +669,12 @@
       text-align: right;
       color: #0a1e3d;
     }
+    .modal-content .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
     .modal-content button {
       background: #0a1e3d;
       border: none;
@@ -677,13 +683,22 @@
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 1rem;
       border: 1px solid #4a7db5;
       transition: all 0.3s ease;
+      flex: 1;
+      min-width: 120px;
     }
     .modal-content button:hover {
       background: #1a3a6b;
       transform: scale(1.05);
+    }
+    .modal-content .btn-whatsapp {
+      background: #25D366;
+      border-color: #25D366;
+    }
+    .modal-content .btn-whatsapp:hover {
+      background: #1da851;
+      border-color: #1da851;
     }
 
     /* BAS DE PAGE */
@@ -797,7 +812,7 @@
       <h1>ELITE <span>MARKET</span></h1>
     </div>
     <div class="header-actions">
-      <div class="whatsapp" onclick="alert('Contactez-nous sur WhatsApp : +226 55 30 31 11')">
+      <div class="whatsapp" onclick="window.open('https://wa.me/22655303111','_blank')">
         <i class="fab fa-whatsapp"></i> +226 55 30 31 11
       </div>
       <div class="currency-badge">
@@ -1076,9 +1091,13 @@
       <li><span>Collier en or 18k</span> <span>45 000 FCFA</span></li>
       <li><span>Baskets cuir</span> <span>32 500 FCFA</span></li>
     </ul>
-    <div class="total">Total : 96 000 FCFA</div>
-    <button onclick="alert('🛒 Commande validée ! Livraison au Burkina Faso.')">Valider la commande</button>
-    <button onclick="closeCart()" style="background: #4a7db5; margin-left: 0.5rem;">Fermer</button>
+    <div class="total" id="cartTotal">Total : 96 000 FCFA</div>
+    <div class="btn-group">
+      <button onclick="validateOrder()" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Valider via WhatsApp
+      </button>
+      <button onclick="closeCart()">Fermer</button>
+    </div>
   </div>
 </div>
 
@@ -1093,12 +1112,29 @@
 
   // Fonction pour ouvrir le panier
   function openCart() {
+    updateCartDisplay();
     document.getElementById('cartModal').classList.add('show');
   }
 
   // Fonction pour fermer le panier
   function closeCart() {
     document.getElementById('cartModal').classList.remove('show');
+  }
+
+  // Mettre à jour l'affichage du panier
+  function updateCartDisplay() {
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${item.name}</span> <span>${item.price.toLocaleString()} FCFA</span>`;
+      cartItems.appendChild(li);
+      total += item.price;
+    });
+    document.getElementById('cartTotal').textContent = `Total : ${total.toLocaleString()} FCFA`;
+    document.getElementById('cartBadge').textContent = cartCount;
+    document.getElementById('navCartCount').textContent = cartCount;
   }
 
   // Fermer la modale en cliquant en dehors
@@ -1113,6 +1149,28 @@
     document.getElementById('cartBadge').textContent = cartCount;
     document.getElementById('navCartCount').textContent = cartCount;
     alert(`✅ ${name} ajouté au panier (${price.toLocaleString()} FCFA)`);
+  }
+
+  // Valider la commande via WhatsApp
+  function validateOrder() {
+    let message = '🛍️ *NOUVELLE COMMANDE ELITE MARKET*%0A%0A';
+    let total = 0;
+    cart.forEach(item => {
+      message += `▪️ ${item.name} : ${item.price.toLocaleString()} FCFA%0A`;
+      total += item.price;
+    });
+    message += `%0A📦 *Total : ${total.toLocaleString()} FCFA*%0A%0A`;
+    message += `📍 Livraison : Burkina Faso%0A`;
+    message += `📱 WhatsApp : +226 55 30 31 11%0A%0A`;
+    message += `✅ Merci de confirmer ma commande.`;
+
+    // Numéro WhatsApp du vendeur (ELITE MARKET)
+    const phoneNumber = '22655303111';
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank');
+    
+    // Fermer la modale
+    closeCart();
   }
 
   // Gestion des favoris
