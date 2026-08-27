@@ -770,6 +770,43 @@
       font-weight: 700;
       color: #f58220;
     }
+    .payment-info .ussd-code {
+      background: #0a1e3d;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .payment-info .ussd-code:hover {
+      background: #1a3a6b;
+      transform: scale(1.05);
+    }
+    .payment-info .ussd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f58220;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    .payment-info .ussd-btn:hover {
+      background: #e07a1e;
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+    }
 
     /* BAS DE PAGE */
     .footer-note {
@@ -885,6 +922,7 @@
       align-items: center;
       gap: 8px;
       transition: all 0.3s ease;
+      cursor: pointer;
     }
     .orange-badge:hover {
       background: #e07a1e;
@@ -909,7 +947,7 @@
       <div class="currency-badge">
         <i class="fas fa-coins"></i> FCFA
       </div>
-      <div class="orange-badge">
+      <div class="orange-badge" onclick="callUSSD()">
         <i class="fas fa-mobile-alt"></i> Orange Money
       </div>
       <div class="delivery-badge">
@@ -936,7 +974,7 @@
         <a href="#" onclick="alert('🌙 Thème sombre activé')"><i class="fas fa-moon"></i> Thème</a>
         <a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Voir le panier</a>
         <a href="#" onclick="alert('📦 Livraison partout au Burkina Faso')"><i class="fas fa-truck"></i> Livraison</a>
-        <a href="#" onclick="openPaymentModal()"><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Payer par Orange Money</a>
+        <a href="#" onclick="callUSSD()"><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Payer par Orange Money</a>
       </div>
     </div>
     <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#4a7db5; padding:0.1rem 0.7rem; border-radius:40px;" id="navCartCount">3</span></a>
@@ -948,7 +986,7 @@
       <i class="fas fa-hand-holding-usd"></i>
       <span><i class="fas fa-wallet"></i> <strong>Payez</strong> en 1 clic</span>
     </div>
-    <button class="deposit-btn" onclick="openPaymentModal()">
+    <button class="deposit-btn" onclick="callUSSD()">
       <i class="fas fa-mobile-alt"></i> Payer par Orange Money
     </button>
   </div>
@@ -1193,10 +1231,15 @@
       <p><i class="fas fa-mobile-alt" style="color:#f58220;"></i> <strong>Paiement par Orange Money</strong></p>
       <p>📱 Numéro : <span class="highlight">+226 55 30 31 11</span></p>
       <p>💳 Montant : <span class="highlight" id="paymentAmount">96 000 FCFA</span></p>
+      <p style="margin-top: 0.8rem;">
+        <strong>📞 Code USSD :</strong>
+        <span class="ussd-code" onclick="callUSSD()">*144*2*1*55303111#</span>
+        <button class="ussd-btn" onclick="callUSSD()"><i class="fas fa-phone"></i> Composer le code</button>
+      </p>
     </div>
     <div class="btn-group">
       <button onclick="clearCart()" class="btn-danger"><i class="fas fa-trash-alt"></i> Vider</button>
-      <button onclick="payWithOrangeMoney()" class="btn-orange"><i class="fas fa-mobile-alt"></i> Payer Orange</button>
+      <button onclick="callUSSD()" class="btn-orange"><i class="fas fa-mobile-alt"></i> Payer Orange</button>
       <button onclick="validateOrder()" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
       <button onclick="closeCart()">Fermer</button>
     </div>
@@ -1209,15 +1252,19 @@
     <h3><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Paiement Orange Money</h3>
     <div class="payment-info" style="background: #fff5e6; border-color: #f58220;">
       <p><strong>💳 Procédure de paiement :</strong></p>
-      <p>1️⃣ Envoyez le montant total par <strong>Orange Money</strong> au :</p>
-      <p style="font-size: 1.4rem; color: #f58220; font-weight: 700;">+226 55 30 31 11</p>
-      <p>2️⃣ Indiquez votre <strong>nom complet</strong> et votre <strong>numéro de commande</strong> dans le message.</p>
-      <p>3️⃣ Après confirmation, nous expédions votre commande sous 24h.</p>
+      <p>1️⃣ Composez le code USSD ci-dessous sur votre téléphone :</p>
+      <p style="font-size: 1.6rem; color: #f58220; font-weight: 700; text-align: center; padding: 0.5rem; background: #0a1e3d; border-radius: 12px; color: white; letter-spacing: 2px; cursor: pointer;" onclick="callUSSD()">
+        *144*2*1*55303111#
+      </p>
+      <p>2️⃣ Entrez le montant total de votre commande : <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">96 000 FCFA</strong></p>
+      <p>3️⃣ Confirmez le paiement avec votre code secret.</p>
       <hr style="margin: 0.8rem 0; border-color: #f58220;">
-      <p><strong>📦 Montant à payer :</strong> <span id="paymentModalAmount" style="color:#f58220; font-size:1.3rem; font-weight:700;">96 000 FCFA</span></p>
+      <p><strong>📦 Montant à payer :</strong> <span style="color:#f58220; font-size:1.3rem; font-weight:700;" id="paymentModalAmount2">96 000 FCFA</span></p>
+      <p style="font-size: 0.85rem; color: #555;">💡 Le code USSD vous permet de payer directement depuis votre téléphone.</p>
     </div>
     <div class="btn-group">
-      <button onclick="window.open('https://wa.me/22655303111?text=Bonjour%2C%20je%20souhaite%20payer%20ma%20commande%20ELITE%20MARKET%20par%20Orange%20Money.%20Mon%20num%C3%A9ro%20est%20...','_blank')" class="btn-whatsapp">
+      <button onclick="callUSSD()" class="btn-orange"><i class="fas fa-phone"></i> Composer le code</button>
+      <button onclick="window.open('https://wa.me/22655303111?text=Bonjour%2C%20je%20viens%20de%20payer%20ma%20commande%20ELITE%20MARKET%20par%20Orange%20Money.%20Voici%20ma%20commande%3A%20...','_blank')" class="btn-whatsapp">
         <i class="fab fa-whatsapp"></i> Confirmer par WhatsApp
       </button>
       <button onclick="closePaymentModal()">Fermer</button>
@@ -1233,6 +1280,23 @@
     { name: 'Baskets cuir', price: 32500 }
   ];
   let cartCount = 3;
+
+  // Fonction pour appeler le code USSD Orange Money
+  function callUSSD() {
+    // Sur mobile, cela ouvre le dialer avec le code USSD
+    // Sur desktop, cela affiche une alerte avec le code à composer
+    const ussdCode = '*144*2*1*55303111#';
+    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.location.href = `tel:${ussdCode}`;
+    } else {
+      alert(`📞 Composez le code USSD sur votre téléphone :\n\n${ussdCode}\n\n📱 Montant à payer : ${getTotal().toLocaleString()} FCFA`);
+    }
+  }
+
+  // Fonction pour obtenir le total du panier
+  function getTotal() {
+    return cart.reduce((sum, item) => sum + item.price, 0);
+  }
 
   // Fonction pour ouvrir le panier
   function openCart() {
@@ -1251,8 +1315,9 @@
       alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
       return;
     }
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const total = getTotal();
     document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
+    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
     document.getElementById('paymentModal').classList.add('show');
   }
 
@@ -1344,9 +1409,9 @@
       alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
       return;
     }
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    // Ouvrir la modale de paiement avec le montant
+    const total = getTotal();
     document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
+    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
     closeCart();
     document.getElementById('paymentModal').classList.add('show');
   }
@@ -1367,7 +1432,7 @@
     message += `%0A📦 *Total : ${total.toLocaleString()} FCFA*%0A%0A`;
     message += `📍 Livraison : Burkina Faso%0A`;
     message += `📱 WhatsApp : +226 55 30 31 11%0A`;
-    message += `💳 Paiement : Orange Money au 55 30 31 11%0A%0A`;
+    message += `💳 Paiement : Orange Money au *144*2*1*55303111#%0A%0A`;
     message += `✅ Merci de confirmer ma commande.`;
 
     const phoneNumber = '22655303111';
