@@ -636,7 +636,7 @@
     .modal-content {
       background: #ffffff;
       color: #0a1e3d;
-      max-width: 500px;
+      max-width: 550px;
       width: 90%;
       padding: 2rem;
       border-radius: 30px;
@@ -655,12 +655,40 @@
     .modal-content ul {
       list-style: none;
       padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
     }
     .modal-content ul li {
       padding: 0.5rem 0;
       border-bottom: 1px solid #b3d9ff;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+    }
+    .modal-content ul li .item-name {
+      flex: 1;
+    }
+    .modal-content ul li .item-price {
+      font-weight: 600;
+      margin: 0 10px;
+    }
+    .modal-content ul li .btn-remove {
+      background: #e74c3c;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+    .modal-content ul li .btn-remove:hover {
+      background: #c0392b;
+      transform: scale(1.1);
     }
     .modal-content .total {
       font-weight: bold;
@@ -679,14 +707,14 @@
       background: #0a1e3d;
       border: none;
       color: white;
-      padding: 0.6rem 2rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
       border: 1px solid #4a7db5;
       transition: all 0.3s ease;
       flex: 1;
-      min-width: 120px;
+      min-width: 100px;
     }
     .modal-content button:hover {
       background: #1a3a6b;
@@ -699,6 +727,24 @@
     .modal-content .btn-whatsapp:hover {
       background: #1da851;
       border-color: #1da851;
+    }
+    .modal-content .btn-danger {
+      background: #e74c3c;
+      border-color: #e74c3c;
+    }
+    .modal-content .btn-danger:hover {
+      background: #c0392b;
+      border-color: #c0392b;
+    }
+    .modal-content .cart-empty {
+      text-align: center;
+      padding: 2rem 0;
+      color: #7f8c8d;
+    }
+    .modal-content .cart-empty i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #bdc3c7;
     }
 
     /* BAS DE PAGE */
@@ -1086,16 +1132,17 @@
 <div id="cartModal" class="modal">
   <div class="modal-content">
     <h3><i class="fas fa-shopping-cart"></i> Votre panier</h3>
-    <ul id="cartItems">
-      <li><span>Robe imprimée wax</span> <span>18 500 FCFA</span></li>
-      <li><span>Collier en or 18k</span> <span>45 000 FCFA</span></li>
-      <li><span>Baskets cuir</span> <span>32 500 FCFA</span></li>
-    </ul>
-    <div class="total" id="cartTotal">Total : 96 000 FCFA</div>
+    <div id="cartContent">
+      <ul id="cartItems">
+        <li><span class="item-name">Robe imprimée wax</span> <span class="item-price">18 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(0)"><i class="fas fa-times"></i></button></li>
+        <li><span class="item-name">Collier en or 18k</span> <span class="item-price">45 000 FCFA</span> <button class="btn-remove" onclick="removeFromCart(1)"><i class="fas fa-times"></i></button></li>
+        <li><span class="item-name">Baskets cuir</span> <span class="item-price">32 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(2)"><i class="fas fa-times"></i></button></li>
+      </ul>
+      <div class="total" id="cartTotal">Total : 96 000 FCFA</div>
+    </div>
     <div class="btn-group">
-      <button onclick="validateOrder()" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Valider via WhatsApp
-      </button>
+      <button onclick="clearCart()" class="btn-danger"><i class="fas fa-trash-alt"></i> Vider</button>
+      <button onclick="validateOrder()" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Valider</button>
       <button onclick="closeCart()">Fermer</button>
     </div>
   </div>
@@ -1125,14 +1172,30 @@
   function updateCartDisplay() {
     const cartItems = document.getElementById('cartItems');
     cartItems.innerHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = `<span>${item.name}</span> <span>${item.price.toLocaleString()} FCFA</span>`;
-      cartItems.appendChild(li);
-      total += item.price;
-    });
-    document.getElementById('cartTotal').textContent = `Total : ${total.toLocaleString()} FCFA`;
+    
+    if (cart.length === 0) {
+      cartItems.innerHTML = `
+        <div class="cart-empty">
+          <i class="fas fa-shopping-bag"></i>
+          <p>Votre panier est vide</p>
+        </div>
+      `;
+      document.getElementById('cartTotal').textContent = 'Total : 0 FCFA';
+    } else {
+      let total = 0;
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="item-name">${item.name}</span>
+          <span class="item-price">${item.price.toLocaleString()} FCFA</span>
+          <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fas fa-times"></i></button>
+        `;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+      document.getElementById('cartTotal').textContent = `Total : ${total.toLocaleString()} FCFA`;
+    }
+    
     document.getElementById('cartBadge').textContent = cartCount;
     document.getElementById('navCartCount').textContent = cartCount;
   }
@@ -1151,8 +1214,37 @@
     alert(`✅ ${name} ajouté au panier (${price.toLocaleString()} FCFA)`);
   }
 
+  // Supprimer un article du panier
+  function removeFromCart(index) {
+    if (cart.length === 0) return;
+    const removed = cart[index];
+    cart.splice(index, 1);
+    cartCount--;
+    updateCartDisplay();
+    alert(`❌ ${removed.name} retiré du panier`);
+  }
+
+  // Vider tout le panier
+  function clearCart() {
+    if (cart.length === 0) {
+      alert('🛒 Votre panier est déjà vide');
+      return;
+    }
+    if (confirm('⚠️ Voulez-vous vraiment vider tout le panier ?')) {
+      cart = [];
+      cartCount = 0;
+      updateCartDisplay();
+      alert('🗑️ Panier vidé avec succès');
+    }
+  }
+
   // Valider la commande via WhatsApp
   function validateOrder() {
+    if (cart.length === 0) {
+      alert('🛒 Votre panier est vide. Ajoutez des articles avant de valider.');
+      return;
+    }
+    
     let message = '🛍️ *NOUVELLE COMMANDE ELITE MARKET*%0A%0A';
     let total = 0;
     cart.forEach(item => {
