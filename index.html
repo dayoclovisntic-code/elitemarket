@@ -36,8 +36,8 @@
     }
 
     @keyframes fadeInApp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     /* EN-TÊTE */
@@ -49,11 +49,11 @@
       border-bottom: 2px solid #0b77eb;
       padding-bottom: 0.75rem;
       margin-bottom: 1.8rem;
-      animation: slideDown 0.6s ease-out;
+      animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     @keyframes slideDown {
-      0% { opacity: 0; transform: translateY(-30px); }
+      0% { opacity: 0; transform: translateY(-40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
@@ -67,10 +67,10 @@
       font-size: 2.4rem;
       color: #0a1e3d;
       filter: drop-shadow(0 0 4px #0906cf);
-      transition: transform 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .brand i:hover {
-      transform: rotate(5deg) scale(1.05);
+      transform: rotate(8deg) scale(1.1);
     }
 
     .brand h1 {
@@ -103,7 +103,7 @@
       color: white;
       border: 1px solid #4a7db5;
       box-shadow: 0 0 6px #4a7db555;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
     }
     .header-actions .whatsapp i {
@@ -112,8 +112,8 @@
     }
     .header-actions .whatsapp:hover {
       background: #2a4a8a;
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 6px 20px rgba(74, 125, 181, 0.4);
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 8px 25px rgba(74, 125, 181, 0.4);
     }
 
     .cart-icon {
@@ -121,10 +121,10 @@
       font-size: 1.8rem;
       color: #0a1e3d;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .cart-icon:hover {
-      transform: scale(1.1);
+      transform: scale(1.15) rotate(-5deg);
     }
     .cart-icon i {
       color: #0a1e3d;
@@ -139,12 +139,12 @@
       padding: 0.2rem 0.6rem;
       font-size: 0.7rem;
       font-weight: bold;
-      animation: pulseBadge 2s infinite;
+      animation: pulseBadge 2s ease-in-out infinite;
     }
 
     @keyframes pulseBadge {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.15); }
     }
 
     .currency-badge {
@@ -155,11 +155,11 @@
       border: 1px solid #4a7db5;
       color: rgb(250, 250, 252);
       font-size: 0.9rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .currency-badge:hover {
       background: #2a4a8a;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     /* NAV / PARAMÈTRES AVEC MENU DÉROULANT */
@@ -174,7 +174,7 @@
       margin-bottom: 2.5rem;
       border: 1px solid #4a7db5;
       position: relative;
-      animation: slideDown 0.7s ease-out;
+      animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .top-nav a {
       color: white;
@@ -193,7 +193,7 @@
       transition: transform 0.3s ease;
     }
     .top-nav a:hover i {
-      transform: translateX(3px);
+      transform: translateX(4px);
     }
     .top-nav a:hover {
       border-bottom-color: white;
@@ -223,8 +223,8 @@
       animation: dropdownFade 0.3s ease;
     }
     @keyframes dropdownFade {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(-12px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
     .dropdown-content a {
       color: rgb(255, 255, 255);
@@ -236,11 +236,11 @@
       border-bottom: none;
       font-weight: 400;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
     .dropdown-content a:hover {
       background-color: #1a3a6b;
-      padding-left: 1.8rem;
+      padding-left: 2rem;
     }
     .dropdown:hover .dropdown-content {
       display: block;
@@ -251,7 +251,7 @@
     .dropbtn i {
       margin-left: 6px;
       font-size: 0.8rem;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
     .dropdown:hover .dropbtn i {
       transform: rotate(180deg);
@@ -269,16 +269,16 @@
       margin-bottom: 2.5rem;
       border: 1px solid #4a7db5;
       box-shadow: 0 4px 12px #00000033;
-      animation: heroAppear 0.9s ease-out;
-      transition: all 0.3s ease;
+      animation: heroAppear 1s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .deposit-banner:hover {
-      box-shadow: 0 8px 30px rgba(74, 125, 181, 0.3);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 35px rgba(74, 125, 181, 0.35);
+      transform: translateY(-3px);
     }
 
     @keyframes heroAppear {
-      0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+      0% { opacity: 0; transform: scale(0.92) translateY(25px); }
       100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
@@ -293,8 +293,8 @@
       animation: floatIcon 3s ease-in-out infinite;
     }
     @keyframes floatIcon {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
     }
     .deposit-banner .left span {
       font-size: 1.2rem;
@@ -312,21 +312,21 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
       border: 1px solid #7bbaff;
     }
     .deposit-btn i {
       color: white;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
     .deposit-btn:hover {
       background: #5a8dc5;
-      transform: scale(1.05) translateY(-3px);
-      box-shadow: 0 8px 25px rgba(74, 125, 181, 0.5);
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 10px 30px rgba(74, 125, 181, 0.5);
     }
     .deposit-btn:hover i {
-      transform: rotate(15deg);
+      transform: rotate(20deg) scale(1.1);
     }
 
     /* GRILLE PRODUITS */
@@ -337,10 +337,10 @@
       margin-bottom: 1.5rem;
       border-left: 6px solid #4a7db5;
       padding-left: 1rem;
-      animation: slideInLeft 0.6s ease-out;
+      animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     @keyframes slideInLeft {
-      0% { opacity: 0; transform: translateX(-20px); }
+      0% { opacity: 0; transform: translateX(-30px); }
       100% { opacity: 1; transform: translateX(0); }
     }
     .section-title h2 {
@@ -363,6 +363,7 @@
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 2rem 1.5rem;
       margin-bottom: 2.5rem;
+      min-height: 300px;
     }
 
     .product-card {
@@ -370,35 +371,30 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
       color: #0a1e3d;
       border: 1px solid #4a7db5;
-      animation: cardAppear 0.5s ease-out forwards;
+      animation: cardAppear 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px) scale(0.95);
     }
 
-    .product-card:nth-child(1) { animation-delay: 0.05s; }
-    .product-card:nth-child(2) { animation-delay: 0.10s; }
-    .product-card:nth-child(3) { animation-delay: 0.15s; }
-    .product-card:nth-child(4) { animation-delay: 0.20s; }
-    .product-card:nth-child(5) { animation-delay: 0.25s; }
-    .product-card:nth-child(6) { animation-delay: 0.30s; }
-    .product-card:nth-child(7) { animation-delay: 0.35s; }
-    .product-card:nth-child(8) { animation-delay: 0.40s; }
-    .product-card:nth-child(9) { animation-delay: 0.45s; }
-    .product-card:nth-child(10) { animation-delay: 0.50s; }
-    .product-card:nth-child(11) { animation-delay: 0.55s; }
-    .product-card:nth-child(12) { animation-delay: 0.60s; }
+    .product-card.hidden {
+      display: none;
+    }
+
+    .product-card.show {
+      animation: cardAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
 
     @keyframes cardAppear {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .product-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
       border-color: #7bbaff;
     }
 
@@ -408,15 +404,15 @@
       object-fit: cover;
       display: block;
       border-bottom: 2px solid #4a7db5;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .product-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
     .product-info {
       padding: 1rem 1rem 1.2rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
     .product-card:hover .product-info {
       background: #f0f8ff;
@@ -448,12 +444,12 @@
       padding: 0.2rem 1rem;
       border-radius: 30px;
       margin: 0.3rem 0 0.6rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .product-card:hover .price {
       background: #4a7db5;
       color: white;
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .product-info .actions {
@@ -472,44 +468,44 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
       border: 1px solid #4a7db5;
     }
     .btn-add i {
       color: #7bbaff;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
     .btn-add:hover {
       background: #1a3a6b;
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(74, 125, 181, 0.4);
+      transform: scale(1.06);
+      box-shadow: 0 6px 20px rgba(74, 125, 181, 0.4);
     }
     .btn-add:hover i {
-      transform: translateX(3px);
+      transform: translateX(5px);
     }
 
     .product-info .fa-heart {
       color: #4a7db5;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
       font-size: 1.3rem;
     }
     .product-info .fa-heart:hover {
-      transform: scale(1.2);
+      transform: scale(1.25);
       color: #ff6688;
     }
     .product-info .fa-heart.liked {
       color: #ff4d6d;
-      animation: heartPop 0.4s ease;
+      animation: heartPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes heartPop {
       0% { transform: scale(1); }
-      50% { transform: scale(1.4); }
+      40% { transform: scale(1.5); }
       100% { transform: scale(1); }
     }
 
-    /* FILTRE CATÉGORIES */
+    /* FILTRE CATÉGORIES - RÉPARÉ */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
@@ -519,7 +515,7 @@
       border-radius: 60px;
       margin-bottom: 2rem;
       border: 1px solid #4a7db5;
-      animation: slideDown 0.6s ease-out;
+      animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .filter-bar span {
       color: white;
@@ -528,9 +524,10 @@
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       padding: 0.2rem 0.8rem;
       border-radius: 30px;
+      user-select: none;
     }
     .filter-bar span i {
       color: #7bbaff;
@@ -538,13 +535,14 @@
     }
     .filter-bar span:hover {
       background: #1a3a6b;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .filter-bar span:hover i {
-      transform: rotate(10deg);
+      transform: rotate(12deg);
     }
     .filter-bar span.active-filter {
       background: #4a7db5;
+      box-shadow: 0 4px 15px rgba(74, 125, 181, 0.4);
     }
 
     /* FAVORIS (paramètre) */
@@ -558,12 +556,12 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      transition: all 0.4s ease;
-      animation: slideDown 0.7s ease-out;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .favorites-panel:hover {
       border-color: #7bbaff;
-      box-shadow: 0 4px 20px rgba(74, 125, 181, 0.2);
+      box-shadow: 0 6px 25px rgba(74, 125, 181, 0.25);
     }
     .favorites-panel .fav-title {
       display: flex;
@@ -575,11 +573,11 @@
     .favorites-panel .fav-title i {
       color: #ff4d6d;
       font-size: 1.4rem;
-      animation: pulseHeart 2s infinite;
+      animation: pulseHeart 2s ease-in-out infinite;
     }
     @keyframes pulseHeart {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+      50% { transform: scale(1.2); }
     }
     .fav-list {
       display: flex;
@@ -596,7 +594,7 @@
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       color: white;
     }
     .fav-list span i {
@@ -605,7 +603,7 @@
     }
     .fav-list span:hover {
       background: #4a7db5;
-      transform: scale(1.05) translateY(-2px);
+      transform: scale(1.05) translateY(-3px);
     }
     .fav-empty {
       color: #b3d9ff;
@@ -624,7 +622,7 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      animation: modalFade 0.3s ease;
+      animation: modalFade 0.35s ease;
     }
     @keyframes modalFade {
       0% { opacity: 0; }
@@ -642,10 +640,10 @@
       border-radius: 30px;
       box-shadow: 0 20px 40px #000000aa;
       border: 2px solid #4a7db5;
-      animation: modalSlideIn 0.4s ease;
+      animation: modalSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes modalSlideIn {
-      0% { opacity: 0; transform: translateY(-30px) scale(0.95); }
+      0% { opacity: 0; transform: translateY(-40px) scale(0.92); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
     .modal-content h3 {
@@ -664,6 +662,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      animation: slideInLeft 0.3s ease;
     }
     .modal-content ul li .item-name {
       flex: 1;
@@ -680,7 +679,7 @@
       width: 30px;
       height: 30px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -688,7 +687,7 @@
     }
     .modal-content ul li .btn-remove:hover {
       background: #c0392b;
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
     .modal-content .total {
       font-weight: bold;
@@ -712,13 +711,13 @@
       font-weight: 600;
       cursor: pointer;
       border: 1px solid #4a7db5;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex: 1;
       min-width: 100px;
     }
     .modal-content button:hover {
       background: #1a3a6b;
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
     .modal-content .btn-orange {
       background: #f58220;
@@ -781,7 +780,7 @@
       letter-spacing: 1px;
       display: inline-block;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .payment-info .ussd-code:hover {
       background: #1a3a6b;
@@ -798,14 +797,14 @@
       font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       font-size: 0.95rem;
       margin-top: 0.5rem;
     }
     .payment-info .ussd-btn:hover {
       background: #e07a1e;
       transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+      box-shadow: 0 6px 20px rgba(245, 130, 32, 0.4);
     }
 
     /* BAS DE PAGE */
@@ -823,10 +822,10 @@
     .footer-note i {
       color: #365675;
       margin: 0 4px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .footer-note i:hover {
-      transform: rotate(10deg) scale(1.1);
+      transform: rotate(12deg) scale(1.15);
     }
     .footer-note .whatsapp-small {
       background: #1a3a6b;
@@ -835,11 +834,11 @@
       font-weight: 400;
       border: 1px solid #4a7db5;
       color: rgb(255, 255, 255);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .footer-note .whatsapp-small:hover {
       background: #2a4a8a;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     /* BOUTON RETOUR EN HAUT */
@@ -857,26 +856,45 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       z-index: 999;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(20px);
+      transform: translateY(20px) scale(0.8);
       font-size: 1.2rem;
     }
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     .back-to-top:hover {
       background: #5a8dc5;
-      transform: scale(1.1) translateY(-5px);
-      box-shadow: 0 8px 30px rgba(74, 125, 181, 0.5);
+      transform: scale(1.12) translateY(-5px);
+      box-shadow: 0 10px 35px rgba(74, 125, 181, 0.5);
     }
     .back-to-top:active {
       transform: scale(0.9);
+    }
+
+    /* MESSAGE AUCUN RÉSULTAT */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: #1a3a6b;
+      font-size: 1.2rem;
+      background: #e6f0fa;
+      border-radius: 30px;
+      border: 2px dashed #4a7db5;
+      animation: fadeInApp 0.5s ease;
+    }
+    .no-results i {
+      font-size: 3rem;
+      color: #4a7db5;
+      margin-bottom: 1rem;
+      display: block;
     }
 
     /* RESPONSIVE */
@@ -902,11 +920,11 @@
       align-items: center;
       gap: 8px;
       color: white;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .delivery-badge:hover {
       background: #2a4a8a;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     /* BADGE ORANGE MONEY */
@@ -921,13 +939,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
     }
     .orange-badge:hover {
       background: #e07a1e;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(245, 130, 32, 0.4);
     }
   </style>
 </head>
@@ -991,13 +1009,13 @@
     </button>
   </div>
 
-  <!-- FILTRE CATÉGORIES -->
-  <div class="filter-bar">
-    <span class="active-filter"><i class="fas fa-th-list"></i> Tous</span>
-    <span onclick="alert('Filtre : Vêtements hommes')"><i class="fas fa-male"></i> Hommes</span>
-    <span onclick="alert('Filtre : Vêtements femmes')"><i class="fas fa-female"></i> Femmes</span>
-    <span onclick="alert('Filtre : Chaussures')"><i class="fas fa-shoe-prints"></i> Chaussures</span>
-    <span onclick="alert('Filtre : Bijoux')"><i class="fas fa-gem"></i> Bijoux</span>
+  <!-- FILTRE CATÉGORIES - RÉPARÉ -->
+  <div class="filter-bar" id="filterBar">
+    <span class="active-filter" data-filter="all"><i class="fas fa-th-list"></i> Tous</span>
+    <span data-filter="homme"><i class="fas fa-male"></i> Hommes</span>
+    <span data-filter="femme"><i class="fas fa-female"></i> Femmes</span>
+    <span data-filter="chaussures"><i class="fas fa-shoe-prints"></i> Chaussures</span>
+    <span data-filter="bijoux"><i class="fas fa-gem"></i> Bijoux</span>
   </div>
 
   <!-- PANEL FAVORIS (PARAMÈTRE) -->
@@ -1015,12 +1033,12 @@
   <!-- SECTION PRODUITS -->
   <div class="section-title">
     <h2><i class="fas fa-tshirt"></i> Nouveautés</h2>
-    <span class="count">12 articles</span>
+    <span class="count" id="productCount">12 articles</span>
   </div>
 
-  <div class="product-grid">
-    <!-- 1 : Robe femme -->
-    <div class="product-card">
+  <div class="product-grid" id="productGrid">
+    <!-- 1 : Robe femme - catégorie femme -->
+    <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=300&fit=crop&crop=center" alt="Robe femme">
       <div class="product-info">
         <h3>Robe imprimée wax</h3>
@@ -1033,8 +1051,8 @@
       </div>
     </div>
 
-    <!-- 2 : Chemise homme -->
-    <div class="product-card">
+    <!-- 2 : Chemise homme - catégorie homme -->
+    <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop&crop=center" alt="Chemise homme">
       <div class="product-info">
         <h3>Chemise boubou homme</h3>
@@ -1047,8 +1065,8 @@
       </div>
     </div>
 
-    <!-- 3 : Baskets unisex -->
-    <div class="product-card">
+    <!-- 3 : Baskets - catégorie chaussures -->
+    <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center" alt="Baskets">
       <div class="product-info">
         <h3>Baskets cuir</h3>
@@ -1061,8 +1079,8 @@
       </div>
     </div>
 
-    <!-- 4 : Collier or -->
-    <div class="product-card">
+    <!-- 4 : Collier or - catégorie bijoux -->
+    <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=400&h=300&fit=crop&crop=center" alt="Collier">
       <div class="product-info">
         <h3>Collier en or 18k</h3>
@@ -1075,8 +1093,8 @@
       </div>
     </div>
 
-    <!-- 5 : Tunique femme -->
-    <div class="product-card">
+    <!-- 5 : Tunique femme - catégorie femme -->
+    <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400&h=300&fit=crop&crop=center" alt="Tunique">
       <div class="product-info">
         <h3>Tunique pagne</h3>
@@ -1089,8 +1107,8 @@
       </div>
     </div>
 
-    <!-- 6 : Costume homme -->
-    <div class="product-card">
+    <!-- 6 : Costume homme - catégorie homme -->
+    <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=300&fit=crop&crop=center" alt="Costume">
       <div class="product-info">
         <h3>Costume élégant</h3>
@@ -1103,8 +1121,8 @@
       </div>
     </div>
 
-    <!-- 7 : Sandales femme -->
-    <div class="product-card">
+    <!-- 7 : Sandales femme - catégorie chaussures -->
+    <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop&crop=center" alt="Sandales">
       <div class="product-info">
         <h3>Sandales en cuir</h3>
@@ -1117,8 +1135,8 @@
       </div>
     </div>
 
-    <!-- 8 : Bague argent -->
-    <div class="product-card">
+    <!-- 8 : Bague argent - catégorie bijoux -->
+    <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop&crop=center" alt="Bague">
       <div class="product-info">
         <h3>Bague argent 925</h3>
@@ -1131,8 +1149,8 @@
       </div>
     </div>
 
-    <!-- 9 : Jupe femme -->
-    <div class="product-card">
+    <!-- 9 : Jupe femme - catégorie femme -->
+    <div class="product-card" data-category="femme">
       <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop&crop=center" alt="Jupe">
       <div class="product-info">
         <h3>Jupe longue wax</h3>
@@ -1145,8 +1163,8 @@
       </div>
     </div>
 
-    <!-- 10 : Polo homme -->
-    <div class="product-card">
+    <!-- 10 : Polo homme - catégorie homme -->
+    <div class="product-card" data-category="homme">
       <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=300&fit=crop&crop=center" alt="Polo">
       <div class="product-info">
         <h3>Polo brodé</h3>
@@ -1159,8 +1177,8 @@
       </div>
     </div>
 
-    <!-- 11 : Bottes homme -->
-    <div class="product-card">
+    <!-- 11 : Bottes - catégorie chaussures -->
+    <div class="product-card" data-category="chaussures">
       <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes">
       <div class="product-info">
         <h3>Bottes en cuir</h3>
@@ -1173,8 +1191,8 @@
       </div>
     </div>
 
-    <!-- 12 : Boucle d'oreille -->
-    <div class="product-card">
+    <!-- 12 : Boucle d'oreille - catégorie bijoux -->
+    <div class="product-card" data-category="bijoux">
       <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop&crop=center" alt="Boucle d'oreille">
       <div class="product-info">
         <h3>Boucles d'oreille or</h3>
@@ -1233,7 +1251,7 @@
       <p>💳 Montant : <span class="highlight" id="paymentAmount">96 000 FCFA</span></p>
       <p style="margin-top: 0.8rem;">
         <strong>📞 Code USSD :</strong>
-        <span class="ussd-code" onclick="callUSSD()">*144*2*1*55303111*montant#</span>
+        <span class="ussd-code" onclick="callUSSD()" id="ussdCodeDisplay">*144*2*1*55303111*96000#</span>
         <button class="ussd-btn" onclick="callUSSD()"><i class="fas fa-phone"></i> Composer le code</button>
       </p>
     </div>
@@ -1253,10 +1271,10 @@
     <div class="payment-info" style="background: #fff5e6; border-color: #f58220;">
       <p><strong>💳 Procédure de paiement :</strong></p>
       <p>1️⃣ Composez le code USSD ci-dessous sur votre téléphone :</p>
-      <p style="font-size: 1.6rem; color: #f58220; font-weight: 700; text-align: center; padding: 0.5rem; background: #0a1e3d; border-radius: 12px; color: white; letter-spacing: 2px; cursor: pointer;" onclick="callUSSD()">
-        *144*2*1*55303111*montant#
+      <p style="font-size: 1.4rem; color: #f58220; font-weight: 700; text-align: center; padding: 0.5rem; background: #0a1e3d; border-radius: 12px; color: white; letter-spacing: 2px; cursor: pointer;" onclick="callUSSD()" id="ussdCodeModal">
+        *144*2*1*55303111*96000#
       </p>
-      <p>2️⃣ Entrez le montant total de votre commande : <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">96 000 FCFA</strong></p>
+      <p>2️⃣ Le montant de <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">96 000 FCFA</strong> sera automatiquement pré-rempli.</p>
       <p>3️⃣ Confirmez le paiement avec votre code secret.</p>
       <hr style="margin: 0.8rem 0; border-color: #f58220;">
       <p><strong>📦 Montant à payer :</strong> <span style="color:#f58220; font-size:1.3rem; font-weight:700;" id="paymentModalAmount2">96 000 FCFA</span></p>
@@ -1281,21 +1299,88 @@
   ];
   let cartCount = 3;
 
-  // Fonction pour appeler le code USSD Orange Money
+  // --- FILTRES RÉPARÉS ---
+  document.querySelectorAll('.filter-bar span').forEach(filter => {
+    filter.addEventListener('click', function() {
+      // Retirer la classe active de tous les filtres
+      document.querySelectorAll('.filter-bar span').forEach(f => f.classList.remove('active-filter'));
+      // Ajouter la classe active au filtre cliqué
+      this.classList.add('active-filter');
+
+      const filterValue = this.dataset.filter;
+      const products = document.querySelectorAll('.product-card');
+      let visibleCount = 0;
+
+      products.forEach(product => {
+        const category = product.dataset.category;
+        if (filterValue === 'all' || category === filterValue) {
+          product.classList.remove('hidden');
+          product.classList.add('show');
+          visibleCount++;
+        } else {
+          product.classList.add('hidden');
+          product.classList.remove('show');
+        }
+      });
+
+      // Mettre à jour le compteur
+      const countEl = document.getElementById('productCount');
+      countEl.textContent = visibleCount + ' article' + (visibleCount > 1 ? 's' : '');
+
+      // Afficher un message si aucun résultat
+      const grid = document.getElementById('productGrid');
+      const existingNoResults = grid.querySelector('.no-results');
+      if (visibleCount === 0) {
+        if (!existingNoResults) {
+          const noResults = document.createElement('div');
+          noResults.className = 'no-results';
+          noResults.innerHTML = '<i class="fas fa-search"></i> Aucun produit trouvé dans cette catégorie';
+          grid.appendChild(noResults);
+        }
+      } else {
+        if (existingNoResults) {
+          existingNoResults.remove();
+        }
+      }
+    });
+  });
+
+  // Fonction pour appeler le code USSD Orange Money avec le montant
   function callUSSD() {
-    // Sur mobile, cela ouvre le dialer avec le code USSD
-    // Sur desktop, cela affiche une alerte avec le code à composer
-    const ussdCode = '*144*2*1*55303111*montant#';
+    const total = getTotal();
+    const ussdCode = `*144*2*1*55303111*${total}#`;
+    
     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       window.location.href = `tel:${ussdCode}`;
     } else {
-      alert(`📞 Composez le code USSD sur votre téléphone :\n\n${ussdCode}\n\n📱 Montant à payer : ${getTotal().toLocaleString()} FCFA`);
+      alert(`📞 Composez le code USSD sur votre téléphone :\n\n${ussdCode}\n\n📱 Montant à payer : ${total.toLocaleString()} FCFA`);
     }
   }
 
   // Fonction pour obtenir le total du panier
   function getTotal() {
     return cart.reduce((sum, item) => sum + item.price, 0);
+  }
+
+  // Mettre à jour le code USSD avec le montant dynamique
+  function updateUSSDCode() {
+    const total = getTotal();
+    const ussdCode = `*144*2*1*55303111*${total}#`;
+    
+    const ussdDisplay = document.getElementById('ussdCodeDisplay');
+    if (ussdDisplay) ussdDisplay.textContent = ussdCode;
+    
+    const ussdModal = document.getElementById('ussdCodeModal');
+    if (ussdModal) ussdModal.textContent = ussdCode;
+    
+    const paymentAmount = document.getElementById('paymentAmount');
+    if (paymentAmount) paymentAmount.textContent = total.toLocaleString() + ' FCFA';
+    
+    const paymentModalAmount = document.getElementById('paymentModalAmount');
+    if (paymentModalAmount) paymentModalAmount.textContent = total.toLocaleString() + ' FCFA';
+    
+    const paymentModalAmount2 = document.getElementById('paymentModalAmount2');
+    if (paymentModalAmount2) paymentModalAmount2.textContent = total.toLocaleString() + ' FCFA';
   }
 
   // Fonction pour ouvrir le panier
@@ -1309,24 +1394,11 @@
     document.getElementById('cartModal').classList.remove('show');
   }
 
-  // Fonction pour ouvrir la modale de paiement
-  function openPaymentModal() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
-      return;
-    }
-    const total = getTotal();
-    document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModal').classList.add('show');
-  }
-
   // Fonction pour fermer la modale de paiement
   function closePaymentModal() {
     document.getElementById('paymentModal').classList.remove('show');
   }
 
-  // Fermer la modale de paiement en cliquant en dehors
   document.getElementById('paymentModal').addEventListener('click', function(e) {
     if (e.target === this) this.classList.remove('show');
   });
@@ -1363,9 +1435,9 @@
     
     document.getElementById('cartBadge').textContent = cartCount;
     document.getElementById('navCartCount').textContent = cartCount;
+    updateUSSDCode();
   }
 
-  // Fermer la modale du panier en cliquant en dehors
   document.getElementById('cartModal').addEventListener('click', function(e) {
     if (e.target === this) this.classList.remove('show');
   });
@@ -1377,6 +1449,7 @@
     document.getElementById('cartBadge').textContent = cartCount;
     document.getElementById('navCartCount').textContent = cartCount;
     alert(`✅ ${name} ajouté au panier (${price.toLocaleString()} FCFA)`);
+    updateUSSDCode();
   }
 
   // Supprimer un article du panier
@@ -1387,6 +1460,7 @@
     cartCount--;
     updateCartDisplay();
     alert(`❌ ${removed.name} retiré du panier`);
+    updateUSSDCode();
   }
 
   // Vider tout le panier
@@ -1400,20 +1474,8 @@
       cartCount = 0;
       updateCartDisplay();
       alert('🗑️ Panier vidé avec succès');
+      updateUSSDCode();
     }
-  }
-
-  // Payer par Orange Money
-  function payWithOrangeMoney() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
-      return;
-    }
-    const total = getTotal();
-    document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
-    closeCart();
-    document.getElementById('paymentModal').classList.add('show');
   }
 
   // Valider la commande via WhatsApp
@@ -1423,16 +1485,15 @@
       return;
     }
     
+    const total = getTotal();
     let message = '🛍️ *NOUVELLE COMMANDE ELITE MARKET*%0A%0A';
-    let total = 0;
     cart.forEach(item => {
       message += `▪️ ${item.name} : ${item.price.toLocaleString()} FCFA%0A`;
-      total += item.price;
     });
     message += `%0A📦 *Total : ${total.toLocaleString()} FCFA*%0A%0A`;
     message += `📍 Livraison : Burkina Faso%0A`;
     message += `📱 WhatsApp : +226 55 30 31 11%0A`;
-    message += `💳 Paiement : Orange Money au *144*2*1*55303111*montant#`;
+    message += `💳 Paiement : Orange Money au *144*2*1*55303111*${total}#%0A%0A`;
     message += `✅ Merci de confirmer ma commande.`;
 
     const phoneNumber = '22655303111';
@@ -1492,1502 +1553,9 @@
       backToTopBtn.classList.remove('show');
     }
   });
-</script>
-</body>
-</html><!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELITE MARKET · Vêtements & Accessoires</title>
-  <!-- Font Awesome 6 (gratuit) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-    }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: #fcfcfc;
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-    }
-
-    .app {
-      max-width: 1300px;
-      width: 100%;
-      padding: 1.5rem 2rem;
-      background: #f5f6f7;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-      animation: fadeInApp 0.8s ease-out;
-    }
-
-    @keyframes fadeInApp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* EN-TÊTE */
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #0b77eb;
-      padding-bottom: 0.75rem;
-      margin-bottom: 1.8rem;
-      animation: slideDown 0.6s ease-out;
-    }
-
-    @keyframes slideDown {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand i {
-      font-size: 2.4rem;
-      color: #0a1e3d;
-      filter: drop-shadow(0 0 4px #0906cf);
-      transition: transform 0.3s ease;
-    }
-    .brand i:hover {
-      transform: rotate(5deg) scale(1.05);
-    }
-
-    .brand h1 {
-      font-weight: 600;
-      font-size: 2.1rem;
-      letter-spacing: 1px;
-      color: #0a1e3d;
-      text-shadow: 0 2px 6px #0b08d6;
-    }
-    .brand h1 span {
-      font-weight: 300;
-      color: #0906da;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-    }
-
-    .header-actions .whatsapp {
-      background: #1a3a6b;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-      color: white;
-      border: 1px solid #4a7db5;
-      box-shadow: 0 0 6px #4a7db555;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .header-actions .whatsapp i {
-      font-size: 1.3rem;
-      color: #25D366;
-    }
-    .header-actions .whatsapp:hover {
-      background: #2a4a8a;
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 6px 20px rgba(74, 125, 181, 0.4);
-    }
-
-    .cart-icon {
-      position: relative;
-      font-size: 1.8rem;
-      color: #0a1e3d;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .cart-icon:hover {
-      transform: scale(1.1);
-    }
-    .cart-icon i {
-      color: #0a1e3d;
-    }
-    .cart-icon .badge {
-      position: absolute;
-      top: -8px;
-      right: -12px;
-      background: #e02f2f;
-      color: rgb(245, 245, 248);
-      border-radius: 30px;
-      padding: 0.2rem 0.6rem;
-      font-size: 0.7rem;
-      font-weight: bold;
-      animation: pulseBadge 2s infinite;
-    }
-
-    @keyframes pulseBadge {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    .currency-badge {
-      background: #1a3a6b;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      font-weight: 600;
-      border: 1px solid #4a7db5;
-      color: rgb(250, 250, 252);
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-    .currency-badge:hover {
-      background: #2a4a8a;
-      transform: translateY(-2px);
-    }
-
-    /* NAV / PARAMÈTRES AVEC MENU DÉROULANT */
-    .top-nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.8rem 2.5rem;
-      background: #0d2647;
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      margin-bottom: 2.5rem;
-      border: 1px solid #4a7db5;
-      position: relative;
-      animation: slideDown 0.7s ease-out;
-    }
-    .top-nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      padding: 0.3rem 0.2rem;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-    }
-    .top-nav a i {
-      color: #7bbaff;
-      transition: transform 0.3s ease;
-    }
-    .top-nav a:hover i {
-      transform: translateX(3px);
-    }
-    .top-nav a:hover {
-      border-bottom-color: white;
-      color: #d4eaff;
-    }
-    .top-nav .active {
-      border-bottom-color: rgb(240, 234, 234);
-    }
-
-    /* MENU DÉROULANT (paramètres) */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #0d2647;
-      min-width: 220px;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-      z-index: 100;
-      top: 2.5rem;
-      left: 0;
-      border: 1px solid #4a7db5;
-      padding: 0.5rem 0;
-      animation: dropdownFade 0.3s ease;
-    }
-    @keyframes dropdownFade {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .dropdown-content a {
-      color: rgb(255, 255, 255);
-      padding: 0.6rem 1.5rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: none;
-      font-weight: 400;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .dropdown-content a:hover {
-      background-color: #1a3a6b;
-      padding-left: 1.8rem;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown:hover .dropbtn {
-      border-bottom-color: white;
-    }
-    .dropbtn i {
-      margin-left: 6px;
-      font-size: 0.8rem;
-      transition: transform 0.3s ease;
-    }
-    .dropdown:hover .dropbtn i {
-      transform: rotate(180deg);
-    }
-
-    /* BANNIÈRE DÉPÔT & LIVRAISON - HERO */
-    .deposit-banner {
-      background: linear-gradient(135deg, #0a1e3d, #1a3a6b);
-      padding: 1.2rem 2rem;
-      border-radius: 60px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
-      border: 1px solid #4a7db5;
-      box-shadow: 0 4px 12px #00000033;
-      animation: heroAppear 0.9s ease-out;
-      transition: all 0.3s ease;
-    }
-    .deposit-banner:hover {
-      box-shadow: 0 8px 30px rgba(74, 125, 181, 0.3);
-      transform: translateY(-2px);
-    }
-
-    @keyframes heroAppear {
-      0% { opacity: 0; transform: scale(0.95) translateY(20px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .deposit-banner .left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    .deposit-banner .left i {
-      font-size: 2.2rem;
-      color: #7bbaff;
-      animation: floatIcon 3s ease-in-out infinite;
-    }
-    @keyframes floatIcon {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .deposit-banner .left span {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: white;
-    }
-    .deposit-btn {
-      background: #4a7db5;
-      border: none;
-      color: white;
-      padding: 0.7rem 2rem;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 1px solid #7bbaff;
-    }
-    .deposit-btn i {
-      color: white;
-      transition: transform 0.3s ease;
-    }
-    .deposit-btn:hover {
-      background: #5a8dc5;
-      transform: scale(1.05) translateY(-3px);
-      box-shadow: 0 8px 25px rgba(74, 125, 181, 0.5);
-    }
-    .deposit-btn:hover i {
-      transform: rotate(15deg);
-    }
-
-    /* GRILLE PRODUITS */
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 1.5rem;
-      border-left: 6px solid #4a7db5;
-      padding-left: 1rem;
-      animation: slideInLeft 0.6s ease-out;
-    }
-    @keyframes slideInLeft {
-      0% { opacity: 0; transform: translateX(-20px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    .section-title h2 {
-      font-weight: 400;
-      letter-spacing: 1px;
-      color: #0a1e3d;
-    }
-    .section-title h2 i {
-      margin-right: 10px;
-      color: #4a7db5;
-    }
-    .section-title .count {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      color: #1a3a6b;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 2rem 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .product-card {
-      background: #e6f0fa;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      color: #0a1e3d;
-      border: 1px solid #4a7db5;
-      animation: cardAppear 0.5s ease-out forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .product-card:nth-child(1) { animation-delay: 0.05s; }
-    .product-card:nth-child(2) { animation-delay: 0.10s; }
-    .product-card:nth-child(3) { animation-delay: 0.15s; }
-    .product-card:nth-child(4) { animation-delay: 0.20s; }
-    .product-card:nth-child(5) { animation-delay: 0.25s; }
-    .product-card:nth-child(6) { animation-delay: 0.30s; }
-    .product-card:nth-child(7) { animation-delay: 0.35s; }
-    .product-card:nth-child(8) { animation-delay: 0.40s; }
-    .product-card:nth-child(9) { animation-delay: 0.45s; }
-    .product-card:nth-child(10) { animation-delay: 0.50s; }
-    .product-card:nth-child(11) { animation-delay: 0.55s; }
-    .product-card:nth-child(12) { animation-delay: 0.60s; }
-
-    @keyframes cardAppear {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .product-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      border-color: #7bbaff;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 2px solid #4a7db5;
-      transition: transform 0.5s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 1rem 1rem 1.2rem;
-      transition: all 0.3s ease;
-    }
-    .product-card:hover .product-info {
-      background: #f0f8ff;
-    }
-
-    .product-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: #0a1e3d;
-      transition: color 0.3s ease;
-    }
-    .product-card:hover .product-info h3 {
-      color: #1a3a6b;
-    }
-
-    .product-info .desc {
-      font-size: 0.85rem;
-      color: #1a3a6b;
-      margin-bottom: 0.5rem;
-      height: 2.4rem;
-      overflow: hidden;
-    }
-    .product-info .price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #0a1e3d;
-      background: #b3d9ff;
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      margin: 0.3rem 0 0.6rem;
-      transition: all 0.3s ease;
-    }
-    .product-card:hover .price {
-      background: #4a7db5;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .product-info .actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.6rem;
-    }
-    .btn-add {
-      background: #0a1e3d;
-      border: none;
-      color: white;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 1px solid #4a7db5;
-    }
-    .btn-add i {
-      color: #7bbaff;
-      transition: transform 0.3s ease;
-    }
-    .btn-add:hover {
-      background: #1a3a6b;
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(74, 125, 181, 0.4);
-    }
-    .btn-add:hover i {
-      transform: translateX(3px);
-    }
-
-    .product-info .fa-heart {
-      color: #4a7db5;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      font-size: 1.3rem;
-    }
-    .product-info .fa-heart:hover {
-      transform: scale(1.2);
-      color: #ff6688;
-    }
-    .product-info .fa-heart.liked {
-      color: #ff4d6d;
-      animation: heartPop 0.4s ease;
-    }
-    @keyframes heartPop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.4); }
-      100% { transform: scale(1); }
-    }
-
-    /* FILTRE CATÉGORIES */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.5rem;
-      background: #0d2647;
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      margin-bottom: 2rem;
-      border: 1px solid #4a7db5;
-      animation: slideDown 0.6s ease-out;
-    }
-    .filter-bar span {
-      color: white;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-    }
-    .filter-bar span i {
-      color: #7bbaff;
-      transition: transform 0.3s ease;
-    }
-    .filter-bar span:hover {
-      background: #1a3a6b;
-      transform: translateY(-2px);
-    }
-    .filter-bar span:hover i {
-      transform: rotate(10deg);
-    }
-    .filter-bar span.active-filter {
-      background: #4a7db5;
-    }
-
-    /* FAVORIS (paramètre) */
-    .favorites-panel {
-      background: #0d2647;
-      border-radius: 30px;
-      padding: 1rem 2rem;
-      margin-bottom: 2rem;
-      border: 1px solid #4a7db5;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.4s ease;
-      animation: slideDown 0.7s ease-out;
-    }
-    .favorites-panel:hover {
-      border-color: #7bbaff;
-      box-shadow: 0 4px 20px rgba(74, 125, 181, 0.2);
-    }
-    .favorites-panel .fav-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 500;
-      color: white;
-    }
-    .favorites-panel .fav-title i {
-      color: #ff4d6d;
-      font-size: 1.4rem;
-      animation: pulseHeart 2s infinite;
-    }
-    @keyframes pulseHeart {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    .fav-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      color: #b3d9ff;
-    }
-    .fav-list span {
-      background: #1a3a6b;
-      padding: 0.3rem 1.2rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: white;
-    }
-    .fav-list span i {
-      color: #ff4d6d;
-      font-size: 0.8rem;
-    }
-    .fav-list span:hover {
-      background: #4a7db5;
-      transform: scale(1.05) translateY(-2px);
-    }
-    .fav-empty {
-      color: #b3d9ff;
-      font-style: italic;
-    }
-
-    /* MODALE PANIER */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 30, 61, 0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      animation: modalFade 0.3s ease;
-    }
-    @keyframes modalFade {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    .modal.show {
-      display: flex;
-    }
-    .modal-content {
-      background: #ffffff;
-      color: #0a1e3d;
-      max-width: 550px;
-      width: 90%;
-      padding: 2rem;
-      border-radius: 30px;
-      box-shadow: 0 20px 40px #000000aa;
-      border: 2px solid #4a7db5;
-      animation: modalSlideIn 0.4s ease;
-    }
-    @keyframes modalSlideIn {
-      0% { opacity: 0; transform: translateY(-30px) scale(0.95); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    .modal-content h3 {
-      margin-bottom: 1rem;
-      color: #0a1e3d;
-    }
-    .modal-content ul {
-      list-style: none;
-      padding: 0;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    .modal-content ul li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #b3d9ff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modal-content ul li .item-name {
-      flex: 1;
-    }
-    .modal-content ul li .item-price {
-      font-weight: 600;
-      margin: 0 10px;
-    }
-    .modal-content ul li .btn-remove {
-      background: #e74c3c;
-      border: none;
-      color: white;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-    }
-    .modal-content ul li .btn-remove:hover {
-      background: #c0392b;
-      transform: scale(1.1);
-    }
-    .modal-content .total {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      text-align: right;
-      color: #0a1e3d;
-    }
-    .modal-content .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .modal-content button {
-      background: #0a1e3d;
-      border: none;
-      color: white;
-      padding: 0.6rem 1.5rem;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid #4a7db5;
-      transition: all 0.3s ease;
-      flex: 1;
-      min-width: 100px;
-    }
-    .modal-content button:hover {
-      background: #1a3a6b;
-      transform: scale(1.05);
-    }
-    .modal-content .btn-orange {
-      background: #f58220;
-      border-color: #f58220;
-    }
-    .modal-content .btn-orange:hover {
-      background: #e07a1e;
-      border-color: #e07a1e;
-    }
-    .modal-content .btn-whatsapp {
-      background: #25D366;
-      border-color: #25D366;
-    }
-    .modal-content .btn-whatsapp:hover {
-      background: #1da851;
-      border-color: #1da851;
-    }
-    .modal-content .btn-danger {
-      background: #e74c3c;
-      border-color: #e74c3c;
-    }
-    .modal-content .btn-danger:hover {
-      background: #c0392b;
-      border-color: #c0392b;
-    }
-    .modal-content .cart-empty {
-      text-align: center;
-      padding: 2rem 0;
-      color: #7f8c8d;
-    }
-    .modal-content .cart-empty i {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #bdc3c7;
-    }
-    .payment-info {
-      background: #f0f8ff;
-      border-radius: 16px;
-      padding: 1rem;
-      margin: 1rem 0;
-      border: 1px solid #b3d9ff;
-    }
-    .payment-info p {
-      margin: 0.3rem 0;
-      font-size: 0.9rem;
-      color: #0a1e3d;
-    }
-    .payment-info .highlight {
-      font-weight: 700;
-      color: #f58220;
-    }
-    .payment-info .ussd-code {
-      background: #0a1e3d;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 8px;
-      font-family: 'Courier New', monospace;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      display: inline-block;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .payment-info .ussd-code:hover {
-      background: #1a3a6b;
-      transform: scale(1.05);
-    }
-    .payment-info .ussd-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #f58220;
-      color: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-    }
-    .payment-info .ussd-btn:hover {
-      background: #e07a1e;
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
-    }
-
-    /* BAS DE PAGE */
-    .footer-note {
-      margin-top: 2.2rem;
-      border-top: 1px solid #345e8b;
-      padding-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      color: #13273b;
-      animation: fadeInApp 0.8s ease-out;
-    }
-    .footer-note i {
-      color: #365675;
-      margin: 0 4px;
-      transition: transform 0.3s ease;
-    }
-    .footer-note i:hover {
-      transform: rotate(10deg) scale(1.1);
-    }
-    .footer-note .whatsapp-small {
-      background: #1a3a6b;
-      padding: 0.3rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 400;
-      border: 1px solid #4a7db5;
-      color: rgb(255, 255, 255);
-      transition: all 0.3s ease;
-    }
-    .footer-note .whatsapp-small:hover {
-      background: #2a4a8a;
-      transform: translateY(-2px);
-    }
-
-    /* BOUTON RETOUR EN HAUT */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #4a7db5;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid #7bbaff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      font-size: 1.2rem;
-    }
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .back-to-top:hover {
-      background: #5a8dc5;
-      transform: scale(1.1) translateY(-5px);
-      box-shadow: 0 8px 30px rgba(74, 125, 181, 0.5);
-    }
-    .back-to-top:active {
-      transform: scale(0.9);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .app { padding: 1rem; }
-      .header { flex-direction: column; align-items: start; gap: 12px; }
-      .top-nav { border-radius: 30px; gap: 1rem; }
-      .deposit-banner { flex-direction: column; align-items: start; gap: 12px; }
-      .filter-bar { border-radius: 30px; gap: 0.6rem; }
-      .favorites-panel { flex-direction: column; align-items: start; gap: 0.8rem; }
-      .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 1rem; }
-      .modal-content .btn-group { flex-direction: column; }
-    }
-
-    /* LIVRAISON BADGE */
-    .delivery-badge {
-      background: #1a3a6b;
-      padding: 0.3rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 400;
-      border: 1px solid #4a7db5;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: white;
-      transition: all 0.3s ease;
-    }
-    .delivery-badge:hover {
-      background: #2a4a8a;
-      transform: translateY(-2px);
-    }
-
-    /* BADGE ORANGE MONEY */
-    .orange-badge {
-      background: #f58220;
-      padding: 0.3rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      border: 1px solid #ffa64d;
-      color: white;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .orange-badge:hover {
-      background: #e07a1e;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
-    }
-  </style>
-</head>
-<body>
-<div class="app">
-
-  <!-- EN-TÊTE -->
-  <header class="header">
-    <div class="brand">
-      <i class="fas fa-crown"></i>
-      <h1>ELITE <span>MARKET</span></h1>
-    </div>
-    <div class="header-actions">
-      <div class="whatsapp" onclick="window.open('https://wa.me/22655303111','_blank')">
-        <i class="fab fa-whatsapp"></i> +226 55 30 31 11
-      </div>
-      <div class="currency-badge">
-        <i class="fas fa-coins"></i> FCFA
-      </div>
-      <div class="orange-badge" onclick="callUSSD()">
-        <i class="fas fa-mobile-alt"></i> Orange Money
-      </div>
-      <div class="delivery-badge">
-        <i class="fas fa-truck"></i> Livraison Burkina
-      </div>
-      <div class="cart-icon" onclick="openCart()">
-        <i class="fas fa-shopping-cart"></i> 
-        <span class="badge" id="cartBadge">3</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- NAV PARAMÈTRES AVEC MENU DÉROULANT -->
-  <nav class="top-nav">
-    <a href="#" class="active"><i class="fas fa-store"></i> Boutique</a>
-    <a href="#"><i class="fas fa-box"></i> Dépôts</a>
-    <!-- MENU DÉROULANT PARAMÈTRES -->
-    <div class="dropdown">
-      <a href="#" class="dropbtn"><i class="fas fa-sliders-h"></i> Paramètres <i class="fas fa-chevron-down"></i></a>
-      <div class="dropdown-content">
-        <a href="#" onclick="alert('⚙️ Paramètres généraux du compte')"><i class="fas fa-user-cog"></i> Mon compte</a>
-        <a href="#" onclick="document.getElementById('favPanel').scrollIntoView({behavior:'smooth'});"><i class="fas fa-heart" style="color:#ff4d6d;"></i> Mes favoris</a>
-        <a href="#" onclick="alert('🔔 Notifications activées')"><i class="fas fa-bell"></i> Notifications</a>
-        <a href="#" onclick="alert('🌙 Thème sombre activé')"><i class="fas fa-moon"></i> Thème</a>
-        <a href="#" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Voir le panier</a>
-        <a href="#" onclick="alert('📦 Livraison partout au Burkina Faso')"><i class="fas fa-truck"></i> Livraison</a>
-        <a href="#" onclick="callUSSD()"><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Payer par Orange Money</a>
-      </div>
-    </div>
-    <a href="#"><i class="fas fa-shopping-bag"></i> Panier <span style="background:#4a7db5; padding:0.1rem 0.7rem; border-radius:40px;" id="navCartCount">3</span></a>
-  </nav>
-
-  <!-- BANNIÈRE DÉPÔT (HERO) -->
-  <div class="deposit-banner">
-    <div class="left">
-      <i class="fas fa-hand-holding-usd"></i>
-      <span><i class="fas fa-wallet"></i> <strong>Payez</strong> en 1 clic</span>
-    </div>
-    <button class="deposit-btn" onclick="callUSSD()">
-      <i class="fas fa-mobile-alt"></i> Payer par Orange Money
-    </button>
-  </div>
-
-  <!-- FILTRE CATÉGORIES -->
-  <div class="filter-bar">
-    <span class="active-filter"><i class="fas fa-th-list"></i> Tous</span>
-    <span onclick="alert('Filtre : Vêtements hommes')"><i class="fas fa-male"></i> Hommes</span>
-    <span onclick="alert('Filtre : Vêtements femmes')"><i class="fas fa-female"></i> Femmes</span>
-    <span onclick="alert('Filtre : Chaussures')"><i class="fas fa-shoe-prints"></i> Chaussures</span>
-    <span onclick="alert('Filtre : Bijoux')"><i class="fas fa-gem"></i> Bijoux</span>
-  </div>
-
-  <!-- PANEL FAVORIS (PARAMÈTRE) -->
-  <div id="favPanel" class="favorites-panel">
-    <div class="fav-title">
-      <i class="fas fa-heart"></i> Mes favoris
-    </div>
-    <div class="fav-list" id="favListContainer">
-      <span><i class="fas fa-tshirt"></i> Robe wax</span>
-      <span><i class="fas fa-gem"></i> Collier or</span>
-      <span><i class="fas fa-shoe-prints"></i> Baskets cuir</span>
-    </div>
-  </div>
-
-  <!-- SECTION PRODUITS -->
-  <div class="section-title">
-    <h2><i class="fas fa-tshirt"></i> Nouveautés</h2>
-    <span class="count">12 articles</span>
-  </div>
-
-  <div class="product-grid">
-    <!-- 1 : Robe femme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=300&fit=crop&crop=center" alt="Robe femme">
-      <div class="product-info">
-        <h3>Robe imprimée wax</h3>
-        <div class="desc">Coupe élégante, motifs burkinabè, 100% coton</div>
-        <div class="price">18 500 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Robe imprimée wax', 18500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Robe imprimée wax', 'fa-tshirt')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2 : Chemise homme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop&crop=center" alt="Chemise homme">
-      <div class="product-info">
-        <h3>Chemise boubou homme</h3>
-        <div class="desc">Brodé main, tissu Faso Dan Fani, tailles M-XXL</div>
-        <div class="price">22 000 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Chemise boubou homme', 22000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Chemise boubou homme', 'fa-male')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3 : Baskets unisex -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center" alt="Baskets">
-      <div class="product-info">
-        <h3>Baskets cuir</h3>
-        <div class="desc">Confortable, semelle renforcée, pour homme & femme</div>
-        <div class="price">32 500 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Baskets cuir', 32500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Baskets cuir', 'fa-shoe-prints')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4 : Collier or -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=400&h=300&fit=crop&crop=center" alt="Collier">
-      <div class="product-info">
-        <h3>Collier en or 18k</h3>
-        <div class="desc">Pendentif forme de carte du Burkina, chaîne fine</div>
-        <div class="price">45 000 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Collier en or 18k', 45000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="fas fa-heart liked" onclick="toggleFav(this, 'Collier en or 18k', 'fa-gem')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 : Tunique femme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400&h=300&fit=crop&crop=center" alt="Tunique">
-      <div class="product-info">
-        <h3>Tunique pagne</h3>
-        <div class="desc">Tissu Kente, manches 3/4, coupe fluide</div>
-        <div class="price">17 800 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Tunique pagne', 17800)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Tunique pagne', 'fa-female')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6 : Costume homme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=300&fit=crop&crop=center" alt="Costume">
-      <div class="product-info">
-        <h3>Costume élégant</h3>
-        <div class="desc">Veste + pantalon, tissu italien, coupe slim</div>
-        <div class="price">68 000 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Costume élégant', 68000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Costume élégant', 'fa-male')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7 : Sandales femme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop&crop=center" alt="Sandales">
-      <div class="product-info">
-        <h3>Sandales en cuir</h3>
-        <div class="desc">Artisanales, bride cheville, semelle confort</div>
-        <div class="price">14 200 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Sandales en cuir', 14200)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Sandales en cuir', 'fa-female')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 8 : Bague argent -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop&crop=center" alt="Bague">
-      <div class="product-info">
-        <h3>Bague argent 925</h3>
-        <div class="desc">Ornée de pierre naturelle, pour homme & femme</div>
-        <div class="price">12 900 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Bague argent 925', 12900)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Bague argent 925', 'fa-gem')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 9 : Jupe femme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop&crop=center" alt="Jupe">
-      <div class="product-info">
-        <h3>Jupe longue wax</h3>
-        <div class="desc">Motifs traditionnels, taille élastique, poches</div>
-        <div class="price">14 800 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Jupe longue wax', 14800)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Jupe longue wax', 'fa-female')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 10 : Polo homme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=300&fit=crop&crop=center" alt="Polo">
-      <div class="product-info">
-        <h3>Polo brodé</h3>
-        <div class="desc">Coton piqué, broderie ELITE, coloris noir/blanc</div>
-        <div class="price">9 500 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Polo brodé', 9500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Polo brodé', 'fa-male')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 11 : Bottes homme -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop&crop=center" alt="Bottes">
-      <div class="product-info">
-        <h3>Bottes en cuir</h3>
-        <div class="desc">Semelle caoutchouc, doublure texturée, tailles 39-45</div>
-        <div class="price">36 000 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Bottes en cuir', 36000)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Bottes en cuir', 'fa-shoe-prints')"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- 12 : Boucle d'oreille -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop&crop=center" alt="Boucle d'oreille">
-      <div class="product-info">
-        <h3>Boucles d'oreille or</h3>
-        <div class="desc">Or 18k, forme de map, pour femme et homme</div>
-        <div class="price">28 500 FCFA</div>
-        <div class="actions">
-          <button class="btn-add" onclick="addToCart('Boucles d\'oreille or', 28500)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-          <i class="far fa-heart" onclick="toggleFav(this, 'Boucles d\'oreille or', 'fa-gem')"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PIED DE PAGE -->
-  <footer class="footer-note">
-    <div>
-      <i class="fas fa-map-pin"></i> Dédougou · <i class="fas fa-phone"></i> +226 55 30 31 11 
-      <span style="margin-left: 1rem;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</span>
-    </div>
-    <div class="whatsapp-small">
-      <i class="fas fa-shipping-fast"></i> Expédition partout au Burkina
-    </div>
-  </footer>
-
-  <!-- PETIT RAPPEL : PANIER -->
-  <div style="margin-top: 0.8rem; font-size: 0.8rem; opacity:0.7; display: flex; gap: 1.2rem; flex-wrap: wrap; border-top: 1px solid #4a7db5; padding-top: 0.8rem; color: #1a3a6b;">
-    <span><i class="fas fa-check-circle" style="color:#66bb6a;"></i> Paiement sécurisé FCFA</span>
-    <span><i class="fas fa-truck"></i> Livraison 24-72h</span>
-    <span><i class="fas fa-credit-card"></i> Orange Money / Mobile Money</span>
-    <span><i class="fas fa-exchange-alt"></i> Retour sous 7 jours</span>
-  </div>
-
-</div>
-<!-- Fin .app -->
-
-<!-- BOUTON RETOUR EN HAUT -->
-<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-<!-- MODALE PANIER -->
-<div id="cartModal" class="modal">
-  <div class="modal-content">
-    <h3><i class="fas fa-shopping-cart"></i> Votre panier</h3>
-    <div id="cartContent">
-      <ul id="cartItems">
-        <li><span class="item-name">Robe imprimée wax</span> <span class="item-price">18 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(0)"><i class="fas fa-times"></i></button></li>
-        <li><span class="item-name">Collier en or 18k</span> <span class="item-price">45 000 FCFA</span> <button class="btn-remove" onclick="removeFromCart(1)"><i class="fas fa-times"></i></button></li>
-        <li><span class="item-name">Baskets cuir</span> <span class="item-price">32 500 FCFA</span> <button class="btn-remove" onclick="removeFromCart(2)"><i class="fas fa-times"></i></button></li>
-      </ul>
-      <div class="total" id="cartTotal">Total : 96 000 FCFA</div>
-    </div>
-    <div class="payment-info">
-      <p><i class="fas fa-mobile-alt" style="color:#f58220;"></i> <strong>Paiement par Orange Money</strong></p>
-      <p>📱 Numéro : <span class="highlight">+226 55 30 31 11</span></p>
-      <p>💳 Montant : <span class="highlight" id="paymentAmount">96 000 FCFA</span></p>
-      <p style="margin-top: 0.8rem;">
-        <strong>📞 Code USSD :</strong>
-        <span class="ussd-code" onclick="callUSSD()">*144*2*1*55303111#</span>
-        <button class="ussd-btn" onclick="callUSSD()"><i class="fas fa-phone"></i> Composer le code</button>
-      </p>
-    </div>
-    <div class="btn-group">
-      <button onclick="clearCart()" class="btn-danger"><i class="fas fa-trash-alt"></i> Vider</button>
-      <button onclick="callUSSD()" class="btn-orange"><i class="fas fa-mobile-alt"></i> Payer Orange</button>
-      <button onclick="validateOrder()" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-      <button onclick="closeCart()">Fermer</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODALE PAIEMENT ORANGE MONEY -->
-<div id="paymentModal" class="modal">
-  <div class="modal-content">
-    <h3><i class="fas fa-mobile-alt" style="color:#f58220;"></i> Paiement Orange Money</h3>
-    <div class="payment-info" style="background: #fff5e6; border-color: #f58220;">
-      <p><strong>💳 Procédure de paiement :</strong></p>
-      <p>1️⃣ Composez le code USSD ci-dessous sur votre téléphone :</p>
-      <p style="font-size: 1.6rem; color: #f58220; font-weight: 700; text-align: center; padding: 0.5rem; background: #0a1e3d; border-radius: 12px; color: white; letter-spacing: 2px; cursor: pointer;" onclick="callUSSD()">
-        *144*2*1*55303111#
-      </p>
-      <p>2️⃣ Entrez le montant total de votre commande : <strong id="paymentModalAmount" style="color:#f58220; font-size:1.2rem;">96 000 FCFA</strong></p>
-      <p>3️⃣ Confirmez le paiement avec votre code secret.</p>
-      <hr style="margin: 0.8rem 0; border-color: #f58220;">
-      <p><strong>📦 Montant à payer :</strong> <span style="color:#f58220; font-size:1.3rem; font-weight:700;" id="paymentModalAmount2">96 000 FCFA</span></p>
-      <p style="font-size: 0.85rem; color: #555;">💡 Le code USSD vous permet de payer directement depuis votre téléphone.</p>
-    </div>
-    <div class="btn-group">
-      <button onclick="callUSSD()" class="btn-orange"><i class="fas fa-phone"></i> Composer le code</button>
-      <button onclick="window.open('https://wa.me/22655303111?text=Bonjour%2C%20je%20viens%20de%20payer%20ma%20commande%20ELITE%20MARKET%20par%20Orange%20Money.%20Voici%20ma%20commande%3A%20...','_blank')" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Confirmer par WhatsApp
-      </button>
-      <button onclick="closePaymentModal()">Fermer</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Variables du panier
-  let cart = [
-    { name: 'Robe imprimée wax', price: 18500 },
-    { name: 'Collier en or 18k', price: 45000 },
-    { name: 'Baskets cuir', price: 32500 }
-  ];
-  let cartCount = 3;
-
-  // Fonction pour appeler le code USSD Orange Money
-  function callUSSD() {
-    // Sur mobile, cela ouvre le dialer avec le code USSD
-    // Sur desktop, cela affiche une alerte avec le code à composer
-    const ussdCode = '*144*2*1*55303111#';
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      window.location.href = `tel:${ussdCode}`;
-    } else {
-      alert(`📞 Composez le code USSD sur votre téléphone :\n\n${ussdCode}\n\n📱 Montant à payer : ${getTotal().toLocaleString()} FCFA`);
-    }
-  }
-
-  // Fonction pour obtenir le total du panier
-  function getTotal() {
-    return cart.reduce((sum, item) => sum + item.price, 0);
-  }
-
-  // Fonction pour ouvrir le panier
-  function openCart() {
-    updateCartDisplay();
-    document.getElementById('cartModal').classList.add('show');
-  }
-
-  // Fonction pour fermer le panier
-  function closeCart() {
-    document.getElementById('cartModal').classList.remove('show');
-  }
-
-  // Fonction pour ouvrir la modale de paiement
-  function openPaymentModal() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
-      return;
-    }
-    const total = getTotal();
-    document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModal').classList.add('show');
-  }
-
-  // Fonction pour fermer la modale de paiement
-  function closePaymentModal() {
-    document.getElementById('paymentModal').classList.remove('show');
-  }
-
-  // Fermer la modale de paiement en cliquant en dehors
-  document.getElementById('paymentModal').addEventListener('click', function(e) {
-    if (e.target === this) this.classList.remove('show');
-  });
-
-  // Mettre à jour l'affichage du panier
-  function updateCartDisplay() {
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-    
-    if (cart.length === 0) {
-      cartItems.innerHTML = `
-        <div class="cart-empty">
-          <i class="fas fa-shopping-bag"></i>
-          <p>Votre panier est vide</p>
-        </div>
-      `;
-      document.getElementById('cartTotal').textContent = 'Total : 0 FCFA';
-      document.getElementById('paymentAmount').textContent = '0 FCFA';
-    } else {
-      let total = 0;
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <span class="item-name">${item.name}</span>
-          <span class="item-price">${item.price.toLocaleString()} FCFA</span>
-          <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fas fa-times"></i></button>
-        `;
-        cartItems.appendChild(li);
-        total += item.price;
-      });
-      document.getElementById('cartTotal').textContent = `Total : ${total.toLocaleString()} FCFA`;
-      document.getElementById('paymentAmount').textContent = `${total.toLocaleString()} FCFA`;
-    }
-    
-    document.getElementById('cartBadge').textContent = cartCount;
-    document.getElementById('navCartCount').textContent = cartCount;
-  }
-
-  // Fermer la modale du panier en cliquant en dehors
-  document.getElementById('cartModal').addEventListener('click', function(e) {
-    if (e.target === this) this.classList.remove('show');
-  });
-
-  // Ajouter au panier
-  function addToCart(name, price) {
-    cart.push({ name, price });
-    cartCount++;
-    document.getElementById('cartBadge').textContent = cartCount;
-    document.getElementById('navCartCount').textContent = cartCount;
-    alert(`✅ ${name} ajouté au panier (${price.toLocaleString()} FCFA)`);
-  }
-
-  // Supprimer un article du panier
-  function removeFromCart(index) {
-    if (cart.length === 0) return;
-    const removed = cart[index];
-    cart.splice(index, 1);
-    cartCount--;
-    updateCartDisplay();
-    alert(`❌ ${removed.name} retiré du panier`);
-  }
-
-  // Vider tout le panier
-  function clearCart() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est déjà vide');
-      return;
-    }
-    if (confirm('⚠️ Voulez-vous vraiment vider tout le panier ?')) {
-      cart = [];
-      cartCount = 0;
-      updateCartDisplay();
-      alert('🗑️ Panier vidé avec succès');
-    }
-  }
-
-  // Payer par Orange Money
-  function payWithOrangeMoney() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est vide. Ajoutez des articles avant de payer.');
-      return;
-    }
-    const total = getTotal();
-    document.getElementById('paymentModalAmount').textContent = total.toLocaleString() + ' FCFA';
-    document.getElementById('paymentModalAmount2').textContent = total.toLocaleString() + ' FCFA';
-    closeCart();
-    document.getElementById('paymentModal').classList.add('show');
-  }
-
-  // Valider la commande via WhatsApp
-  function validateOrder() {
-    if (cart.length === 0) {
-      alert('🛒 Votre panier est vide. Ajoutez des articles avant de valider.');
-      return;
-    }
-    
-    let message = '🛍️ *NOUVELLE COMMANDE ELITE MARKET*%0A%0A';
-    let total = 0;
-    cart.forEach(item => {
-      message += `▪️ ${item.name} : ${item.price.toLocaleString()} FCFA%0A`;
-      total += item.price;
-    });
-    message += `%0A📦 *Total : ${total.toLocaleString()} FCFA*%0A%0A`;
-    message += `📍 Livraison : Burkina Faso%0A`;
-    message += `📱 WhatsApp : +226 55 30 31 11%0A`;
-    message += `💳 Paiement : Orange Money au *144*2*1*55303111#%0A%0A`;
-    message += `✅ Merci de confirmer ma commande.`;
-
-    const phoneNumber = '22655303111';
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(url, '_blank');
-    closeCart();
-  }
-
-  // Gestion des favoris
-  function toggleFav(element, productName, iconClass) {
-    const heart = element;
-    heart.classList.toggle('fas');
-    heart.classList.toggle('far');
-    heart.classList.toggle('liked');
-    
-    const favList = document.getElementById('favListContainer');
-    const emptyMsg = favList.querySelector('.fav-empty');
-    
-    const existing = Array.from(favList.querySelectorAll('span')).find(
-      span => span.textContent.trim() === productName
-    );
-    
-    if (heart.classList.contains('fas')) {
-      if (!existing) {
-        const newFav = document.createElement('span');
-        newFav.innerHTML = `<i class="fas ${iconClass}"></i> ${productName}`;
-        newFav.onclick = function() {
-          this.remove();
-          document.querySelectorAll('.product-card .fa-heart').forEach(heartEl => {
-            const parentInfo = heartEl.closest('.product-info');
-            if (parentInfo && parentInfo.querySelector('h3').textContent === productName) {
-              heartEl.classList.remove('fas', 'liked');
-              heartEl.classList.add('far');
-            }
-          });
-          if (favList.querySelectorAll('span').length === 0) {
-            favList.innerHTML = '<span class="fav-empty">Aucun favori pour l\'instant</span>';
-          }
-        };
-        favList.appendChild(newFav);
-        if (emptyMsg) emptyMsg.remove();
-      }
-    } else {
-      if (existing) existing.remove();
-      if (favList.querySelectorAll('span').length === 0) {
-        favList.innerHTML = '<span class="fav-empty">Aucun favori pour l\'instant</span>';
-      }
-    }
-  }
-
-  // Gestion du bouton Retour en haut
-  const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('show');
-    } else {
-      backToTopBtn.classList.remove('show');
-    }
-  });
+  // Initialisation
+  updateUSSDCode();
 </script>
 </body>
 </html>
