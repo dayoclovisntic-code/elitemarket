@@ -96,7 +96,7 @@
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
     .brand h1 .elite {
-      color: rgb(53, 45, 128);
+      color: #ffffff;
     }
     .brand h1 .market {
       color: #e02f2f;
@@ -1606,29 +1606,29 @@
   <div class="hero-carousel" id="heroCarousel">
     <div class="carousel-slides" id="carouselSlides">
       <!-- Slide 1 -->
-      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=400&fit=crop&crop=center');">
+      <div class="carousel-slide" style="background-image: url('images/robe-femme.jpg');">
         <div class="carousel-content">
           <span class="badge-category">👗 Nouveauté</span>
           <h2>Collection <span>Wax</span> 2026</h2>
-          <p>Des robes et tenues traditionnelles aux motifs burkinabè authentiques.</p>
-          <div class="price-tag">Dès 12 500 FCFA</div>
+          <p>Des robes aux motifs authentiques.</p>
+          <div class="price-tag">Dès 11 500 FCFA</div>
           <button class="btn-carousel" onclick="filterCategory('femme')"><i class="fas fa-arrow-right"></i> Découvrir</button>
         </div>
         <div class="carousel-image">
-          <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=400&fit=crop&crop=center" alt="Robe wax">
+          <img src="images/robe-femme.jpg" alt="Robe wax">
         </div>
       </div>
       <!-- Slide 2 -->
-      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=400&fit=crop&crop=center');">
+      <div class="carousel-slide" style="background-image: url('images/pantalon-homme.jpg');">
         <div class="carousel-content">
           <span class="badge-category">🎩 Élégance</span>
           <h2>Costumes <span>sur mesure</span></h2>
-          <p>Vestes et pantalons en tissu italien pour un style impeccable.</p>
-          <div class="price-tag">Dès 68 000 FCFA</div>
+          <p>Pantalons jogging pour un style impeccable.</p>
+          <div class="price-tag">Dès 7 000 FCFA</div>
           <button class="btn-carousel" onclick="filterCategory('homme')"><i class="fas fa-arrow-right"></i> Découvrir</button>
         </div>
         <div class="carousel-image">
-          <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=400&fit=crop&crop=center" alt="Costume">
+          <img src="images/pantalon-homme.jpg" alt="Costume">
         </div>
       </div>
       <!-- Slide 3 -->
@@ -2119,7 +2119,7 @@
 
   function updateUSSDCode() {
     const total = getTotal();
-    const ussdCode = `*144*2*1*55303111*${total}#`;
+    const ussdCode = `*144*2*1*55303111*${total}# `;
     const ussdDisplay = document.getElementById('ussdCodeDisplay');
     if (ussdDisplay) ussdDisplay.textContent = ussdCode;
     const ussdModal = document.getElementById('ussdCodeModal');
